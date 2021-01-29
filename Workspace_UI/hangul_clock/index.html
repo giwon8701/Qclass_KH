@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"></meta>
+<title>한글시계</title>
+<style type="text/css">
+    *{margin: 0; padding: 0;}
+    p{display: inline; margin: 10px;}
+    .wrapper{text-align: center; font-size: 500%;}
+
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $div = $(".wrapper > div");
+        $div.css("color","gray");
+        $p = $("p");
+
+        setInterval(function(){
+            var now = new Date();
+            var hh = now.getHours();
+            var mm = now.getMinutes();
+            var ss = now.getSeconds();
+            var time = isTwo(hh) + " : " + isTwo(mm) + " : " + isTwo(ss);
+            clear($p);
+            hourColor(hh,$p);
+            minuteColor(mm,$p);
+            $("#numtime").html(time).css({"color":"black","opacity":"1"});
+        },1000);
+
+        setInterval(function(){
+            function ran(){
+                return Math.floor(Math.random()*255);
+            }
+        }
+    }
+</script>
+</head>
+<body>
+</body>
+</html>

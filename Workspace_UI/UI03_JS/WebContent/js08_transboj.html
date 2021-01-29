@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>1.숫자형 형변환 number()</h2>
+    <P>문자형(정수형, 실수형)을 숫자형으로 반환</P>
+    <input type="text" id="num">
+    <button onclick="numTest(num.value)">클릭</button>
+
+    <script type="text/javascript">
+        function numTest(val) {
+            var val = Number(val) + 5;
+            alert(val + " : " + typerof(val));
+        }
+    </script>
+
+    <h2>2. 정수형 형변환 parseInt()</h2>
+    <p>문자형을 숫자형으로 반환</p>
+    <input type="text" id="int">
+    <button onclick="intTest(int.value);">클릭!</button> 
+
+    <script type="text/javascript">
+    function intTest(val) {
+        var val = parseInt(val);
+        var val = parseInt(val) + 5;
+        alert(val + " : " + typeof(val));
+    }    
+    </script>
+    
+    <h2>3.실수형 형변환 parseFloat()</h2>
+    <p>문자형을 실수형으로 반환</p>
+    <input type="text" id="float">
+    <button onclick="floatTest(float.value);">클릭!</button>
+
+    <script type="text/javascript">
+        function floatTest(val) {
+            var val = parseFloat(val) + 5;
+            alert(val + " : " + typeof(val));
+        }
+    </script>
+
+    <h4>4.검증함수 eval()</h4>
+    <p>문자열로 된 코드를 자바스크립트로 가져와서 실행</p>
+    <input type="text" name="evalue" placeholder="예) 5 + 10">
+    <button onclick="evalTest()">계산!</button>
+    <span></span>
+
+    <script type="text/javascript">
+        function evalTest() {
+            var val = document.getElementsByName("evalue")[0];
+            if (confirm("작성하신 코드가 맞나요? : " + val)) {
+                document.getElementsByTagName("span")[0].innerHTML = "<b>계산결과 : " + eval(val.value) + "</b>";
+            } else {
+                val.value = "다시 작성해 주세요";
+            }
+        }
+    </script>
+
+    <hr>
+
+    <input type="number" class="calc" id="calc01">
+    <input type="text" list="cal" class="calc" id="calc02">
+    <datalist id="cal">
+        <option value="+"/>
+        <option value="-"/>
+        <option value="*"/>
+        <option value="/"/>
+    </datalist>
+    <input type="number" class="calc" id="calc03">
+    <button onclick="calc();"> = </button>
+    <span id="result"></span>
+
+    <script type="text/javascript">
+        function calc() {
+            /*
+            var docs = document.querySelectorAll(".calc");
+            var res = "";
+
+            for (var i=0; i<docs.length; i++) {
+                res += docs[i].value;
+                console.log(res);
+            }
+
+            document.getElementsByTagName("span")[1].innerHTML = eval(res);
+            */
+
+            var res = "";
+
+            var num01 = document.getElementById("calc01").value;
+            var opr = document.getElementById("calc02").value;
+            var num02 = document.getElementById("calc03").value;
+
+
+            res = num01 + opr + num02;
+
+            document.getElementById("result").innerHTML = eval(res);
+        }
+    </script>
+</body>
+</html>

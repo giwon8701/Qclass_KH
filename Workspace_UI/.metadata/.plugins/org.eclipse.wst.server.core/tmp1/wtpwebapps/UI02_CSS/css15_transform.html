@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#tlate {
+	width: 200px;
+	height: 200px;
+	background: red;
+	color: white;
+	font-size: 30pt;
+	word-wrap: break-word;
+	transform: translate(50px, 50px);
+}
+
+#tran {
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	color: white;
+	font-size: 30pt;
+	word-wrap: break-word;
+	transition: width 0.5s, background 1.5s linear, transform 1.5s;
+}
+#tran:hover {
+	width: 800px;
+	background: blue;
+	transform: translate(300px, 0px);
+}
+</style>
+</head>
+<body>
+
+	<h1>Transform - translate</h1>
+	<div id="tlate">translate(x, y) : 위치이동</div>
+
+	<h1>Transform - rotate</h1>
+	<div id="trotate">rotate(deg) : 회전</div>
+
+	<h1>Transform - scale</h1>
+	<div id="tscale">scale(x, y) : 크기</div>
+
+	<h1>Transition</h1>
+	<div id="tran">transition : 속성 전환</div>
+
+</body>
+</html>

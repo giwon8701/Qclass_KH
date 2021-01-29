@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function strTest01() {
+            var str01 = "kh정보교육원";
+            var str02 = "QClass";
+
+            // +연산자
+            var str03 = str01 + str02;
+            alert("str01 + str02 = " + str03);
+
+            // concat()
+            var newString = str01.concat(str02, "대박", "짱이야");
+            alert(newString);
+
+            // join()
+            var joinTest = ["5", "10", "15", "20"].join("+");
+            alert(joinTest);
+            alert(eval(joinTest));
+        }
+
+        function strTest02() {
+            var num = 12.5;
+            var bool = true;
+            var result = "string" + (num + 1) + bool;
+            alert(result + " : " + typeof(result));
+        }
+
+        function strTest03() {
+            var str = prompt("이름을 입력하세요");
+            var span = document.getElementById("res");
+
+            // == : 동등연산자
+            if (str == "qlcass") {
+                span.textContent = str + "님, 환영합니다.";
+            }  else if (str == "큐클래스") {
+                span.textContent = str + "님, 환영합니다.";
+            } else {
+                span.textContent = "이름을 확인해 주세요.";
+            }
+
+            // 자동 형변환
+            var num = 10;
+            if (num == "10") {
+                alert("num == 10");
+            } else {
+                alert("num !== 10");
+            }
+
+            // === : 엄격한 비교
+            if (num === "10") {
+                alert("num === 10");
+            } else {
+                alert("num !== 10");
+            }
+
+            var strVal = "화가난다";
+            var strObj = new String("화가난다");
+
+            if (strVal == strObj) {
+                alert("같다.");
+            } else {
+                alert("다르다");
+            }
+
+            if (strVal === strObj) {
+                alert(strVal + " : " + typeof(strVal) + "\n" + strObj + typeof(strObj) + "\n같다");
+            } else {
+                alert(strVal + " : " + typeof(strVal) + "\n" + strObj + typeof(strObj) + "\n다르다");
+            }
+        }
+
+        function strTest04() {
+            var str = "홍길동 이순신 유재석 강호동 홍길동 김선달";
+            
+            var prop = prompt("검색할 이름을 작성해 주세요");
+            alert("indexOf : " + str.indexOf(prop));
+            alert("lastIndexOf : " + str.lastIndexOf(prop));
+        }
+
+        function strTest05() {
+            var strVal = "문자열 추출하기. 관련 메소드:indexOf, substring.";
+            var start = strVal.indexOf(":");
+            var end = strVal.lastIndexOf(".");
+            var res = strVal.substring(start+1, end);
+            alert(res);
+
+            // indexOf, substring
+            
+        }
+
+        function strTest06() {
+            var prop = prompt("쉼표로 구분하여 키워드를 입력하세요", "예)사과, 바나나, 키위, 수박");
+
+            var propArr = prop.split(",");
+            var propRes = "";
+
+            for (var i=0; i<propArr.length; i++) {
+                propRes += propArr[i] + "<br>";
+            }
+
+            document.getElementById("key").innerHTML = propRes;
+        }
+    </script>
+</head>
+<body>
+
+    
+    <p>문자열 합치기
+        <button onclick="strTest01();">클릭</button>
+    </p>
+
+    <p>다른 자료형 합치기
+        <button onclick="strTest02();">클릭</button>
+        <span id="res"></span>
+    </p>
+
+    <p>문자열 비교하기
+        <button onclick="strTest03();">클릭</button>
+        <span id="res"></span>
+    </p>
+
+    <p>문자열 검색하기
+        <button onclick="strTest04();">클릭</button>
+    </p>
+
+    <p>문자열 추출하기
+        <button onclick="strTest05();">클릭</button>
+    </p>
+
+    <p>키워드 나누기
+        <button onclick="strTest06();">클릭</button>
+    </p>
+    <div id="key"></div>
+    
+</body>
+</html>

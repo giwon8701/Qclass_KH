@@ -1,0 +1,34 @@
+package com.dao;
+
+import java.util.List;
+
+import com.dto.MemberDto;
+
+public class MemberDaoImpl implements MemberDao {
+
+	@Override
+	public List<MemberDto> selectList() {
+		return null;
+	}
+
+	@Override
+	public MemberDto selectOne(int m_no) {
+		return null;
+	}
+
+	@Override
+	public int insert(MemberDto dto) {
+		return 0;
+	}
+
+	@Override
+	public int update(MemberDto dto) {
+		return 0;
+	}
+
+	@Override
+	public int delete(int m_no) {
+		return 0;
+	}
+
+}

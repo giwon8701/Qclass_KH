@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function searchPar() {
+            var child02 = document.getElementsByTagName("p")[1];
+            var parent = child02.parentNode;
+            console.log(parent);
+            alert(parent.nodeName);
+            parent.style.backgroundColor = 'pink';
+        }
+        
+        function searchChi() {
+            var div = document.getElementsByTagName("div")[0];
+            
+            var divChilderen = div.childNodes;
+            console.log(divChilderen);
+        }
+    </script>
+</head>
+<body>
+    
+    <h1>부모탐색, 자식탐색</h1>
+
+    <div><p>child01</p><p>child02</p><p>child03</p></div>
+    <button onclick="searchPar();">부모탐색</button>
+    <button onclick="searchChi();">자식탐색</button>
+
+
+    <h3 onclick="test02();">2. "세번째 div 태그에포맣된 test04"의 폰트 크기를 20pt로 적용하자</h3>
+
+    <div>
+        <p>test01</p>
+        <p>test02</p>
+    </div>
+    <div>
+        <p>test03</p>
+        <p>test04</p>
+    </div>
+
+    <script type="text/javascript">
+        function test01() {
+            var p = document.getElementsByTagName("p")[3];
+            var parent = p.parentNode;
+            parent.style.backgroundColor = 'hotpink';
+        }
+        function test02() {
+            var div = document.getElementsByTagName("div")[2];
+            var children = div.childNodes[3];
+            children.style.fontSize = '20pt';
+        }
+    </script>
+</body>
+</html>

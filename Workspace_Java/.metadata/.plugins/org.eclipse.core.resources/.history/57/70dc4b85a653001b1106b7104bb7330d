@@ -1,0 +1,4 @@
+.navi {}
+.navi li {
+	float: left;
+}

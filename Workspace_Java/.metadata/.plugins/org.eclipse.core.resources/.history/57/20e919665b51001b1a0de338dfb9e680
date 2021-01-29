@@ -1,0 +1,17 @@
+package com.dto;
+
+// Data Transfer Object : 데이터 전달 객체
+// Value Object
+// db table의 row 한개를 저장할 수 있다.
+public class MYTestDto {
+
+	private int mno;
+	private String mname;
+	private String nickname;
+	
+	// 기본생성자, 파라미터3개 생성자
+	
+	// getter & setter
+	
+	
+}

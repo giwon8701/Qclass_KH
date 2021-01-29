@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #colorbox {
+            width: 320px;
+            height: 320px;
+            position: relative;
+        }
+        #red, #green, #blue, #purple {
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            position: absolute;
+        }
+        #green {left: 160px;}
+        #blue {top:160px;}
+        #purple {top:160px; left: 160px;}
+    </style>
+    <script type="text/javascript">
+        function allselect(bool) {
+            var chks= document.getElementsByName("chk");
+            for (var i=0; i<chks.length; i++) {
+                chks[i].checked = bool;
+            }
+        }
+        function oneselect(bool) {
+            var chks = document.getElementsByName("chk");
+            // check가 하나라도 안되어있는지 판별하기 위한 값
+            var check = true;
+                // checkbox가 false일때
+                if(!bool) {
+                    // 전체선택 체크해제
+                    document.getElementsByName("all")[0].checked = false;
+                // checkbox가 true일때
+                } else {
+                    for (var i=0; i<chks.length; i++) {
+                        // 하나라도 checkbox가 false상태라면
+                        if (!chks[i].checked) {
+                            // 변수에 false(체크해제)를 담아준다. 
+                            var check = false;
+                        }
+                    }
+                    // 전체선택checkbox에 변수를 넣어준다.
+                    // false가 하나라도 있다면 -> false
+                    // false가 하나도 없다면   -> true
+                    document.getElementsByName("all")[0].checked = check;
+                }
+        }
+        function sel() {
+            // 1. chk 라는 이름을 가진 모든 checkbox 가져온다.
+            var chks = document.getElementsByName("chk");
+            for (var i=0; i<chks.length; i++) {
+                // 2. 만일 chk들 중에 체크되어있는 element가 있다면,
+                if (chks[i].checked) {
+                    // 3. 체크되어있는 chk.value값을 Id로 가지는 요소의 배경색을 chk.value값으로 바꾸자.
+                    document.getElementById(chks[i].value).style.backgroundColor = chks[i].value;
+                } else {
+                    document.getElementById(chks[i].value).style.backgroundColor = "";
+                }
+            }
+            // document.getElementById(???).style.backgroundColor = ???;
+        }
+
+        function clearDiv() {
+            var chks = document.getElementsByName("chk");
+            for (var i=0; i<chks.length; i++) {
+                document.getElementById(chks[i].value).style.backgroundColor = "";
+                chks[i].checked = false;
+            }
+            document.getElementsByName("all")[0].checked = false;
+        }
+    </script>
+</head>
+<body>
+
+    <div id="colorbox">
+        <div id="red">red</div>
+        <div id="green">green</div>
+        <div id="blue">blue</div>
+        <div id="purple">purple</div>
+    </div>
+
+    <div id="base">
+        <form>
+            <input type="checkbox" name="all" onclick="allselect(this.checked);">전체선택<br>
+            
+            <input type="checkbox" name="chk" value="red" onclick="oneselect(this.checked)">빨강<br>
+            <input type="checkbox" name="chk" value="green" onclick="oneselect(this.checked)">초록<br>
+            <input type="checkbox" name="chk" value="blue" onclick="oneselect(this.checked)">파랑<br>
+            <input type="checkbox" name="chk" value="purple" onclick="oneselect(this.checked)">보라<br>
+            
+            <input type="button" name="선택" onclick="sel();" value="선택">
+            <input type="button" name="초기화" onclick="clearDiv();" value="초기화">
+        </form>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style tyle="text/css">
+        #circle {
+            border: 1px solid red;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        function randomNum() {
+            var rnum = Math.floor(Math.random()*10 + 1);
+            document.getElementById("rnum").value = rnum;
+        }
+
+        function randomBg() {
+            // style 색상 표현 : rgb(0~255, 0~255, 0~255)
+
+            var rnum = function() {
+                return Math.floor(Math.random()*256);
+            }
+
+            document.body.style.backgroundColor = "rgb(" + rnum() + ", " + rnum() + ", " + rnum() + ")";
+        }
+
+        function circleView() {
+            var rnum = Math.floor(Math.random() * 200);
+            var circle = document.getElementById("circle");
+            circle.style.width = rnum + "px";
+            circle.style.height = rnum + "px";
+            circle.style.borderRadius = Math.floor(rnum) + "px";
+            circle.style.display = "block";
+        }
+
+        function circleArea() {
+            var r2 = parseInt(document.getElementById("circle").style.width);
+            var r = r2 / 2;
+
+            var area = Math.PI * Math.pow(r,2);
+            var len = Math.PI * r2;
+
+            document.getElementById("area").innerHTML = Math.round(area);
+            document.getElementById("len").innerHTML = Math.round(len);
+
+            
+            var circleWidth = document.getElementById
+        }
+    </script>
+</head>
+<body>
+    
+    <h1> 랜덤 숫자 생성하기</h1>
+
+    <label>숫자 : </label>
+    <input type="text" id="rnum" readonly="readonly">
+    <input type="button" value="난수발생" onclick="randomNum();">
+
+    <h1>랜덤으로 배경색 설정하기</h1>
+    <input type="button" value="배경색 변경" onclick="randomBg();">
+
+    <h1>원 만들기</h1>
+    <input type="button" value="원 만들기" onclick="circleView();">
+    <br><br><br><br><br>
+    <div id="circle"></div>
+
+    <h1>원의 넓이, 둘레 구하기</h1>
+    <input type="button" value="원 계산" onclick="circleArea();">
+
+    
+    <!-- 넓이 : 파이 * r제곱 / 둘레 : 2 * 파이 * r-->
+    원의 넓이 : 
+    <span id="area"></span>
+    원의 둘레 : 
+    <span id="len"></span>
+
+</body>
+</html>

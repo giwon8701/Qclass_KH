@@ -1,0 +1,26 @@
+.navi {
+	background: green;
+	width: 430px;
+}
+.navi ol li {
+	border-style: solid;
+	border-width: thin;
+	border-color: white;
+	border-radius: 5px;
+	height: 30px;
+	margin: 3px;
+	padding: 2px;
+	background: olive;
+}
+.navi ol li label {
+	position: absolute;
+	width: 100px;
+	padding: 15px;
+	top:10%;
+}
+.navi ol li input {
+	position: absolute;
+	float: right;
+	margin-right: 20px;
+	top:50%;
+}

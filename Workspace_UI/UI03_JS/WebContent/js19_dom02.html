@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function createEle() {
+            // 1.
+            /*
+            var attr = document.createAttribute("style");
+            attr.nodeValue = "border: 2px solid blue";
+            div.setAttributeNode(attr);
+                */
+            // 2.
+            div.setAttribute("style", "border: 2px dashed red;");
+
+            var txt = document.createTextNode("div 생성");
+            div.appendChild(txt);
+
+            document.body.appendChild(div);
+        }
+
+    </script>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

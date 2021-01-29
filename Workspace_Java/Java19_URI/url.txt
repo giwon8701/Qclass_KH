@@ -1,0 +1,7 @@
+주소 (위치) : URL (Uniform Resource Locator)
+
+대상 (이름) : URN (Uniform Resource Name)
+
+식별자      : URI (Uniform Resource Identifier)
+
+URI = URL + URN

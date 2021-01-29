@@ -1,0 +1,70 @@
+package com.controller;
+
+import java.util.List;
+import java.util.Scanner;
+
+import com.biz.MemberBiz;
+import com.biz.MemberBizImpl;
+import com.dto.MemberDto;
+
+public class MemberController {
+
+	private static Scanner sc = new Scanner(System.in);
+	
+	public static int getMenu() {
+		int select = 0;
+		
+		StringBuffer sb = new StringBuffer();
+		sb.append("*********\n")
+		  .append("*1.전체 출력*\n")
+		  .append("*2.선택 출력*\n")
+		  .append("*3.추	가*\n")
+		  .append("*4.수	정*\n")
+		  .append("*5.삭	제*\n")
+		  .append("*6.종	료*\n")
+		  .append("input select : ");
+		System.out.println(sb);
+		select = sc.nextInt();
+		
+		return select;
+	}
+	
+	public static void main(String[] args) {
+		int select = 0;
+		MemberBiz biz = new MemberBizImpl();
+		
+		while (select != 6) {
+			select = getMenu();
+			
+			switch (select) {
+			// 1. 전체출력
+			case 1:
+				List<MemberDto> selectList = biz.selectList();
+				for (MemberDto dto : selectList) {
+					System.out.println(dto);
+				}
+				break;
+			// 2. 선택출력
+			case 2:
+				System.out.println("번호를 입력해주세요 : ");
+				select = sc.nextInt();
+				MemberDto selectOne = biz.selectOne(select);
+				System.out.println(selectOne);
+				break;
+			// 3. 추가
+			case 3:
+				break;
+			// 4. 수정
+			case 4:
+				break;
+			// 5. 삭제
+			case 5:
+				break;
+			// 6. 종료
+			case 6:
+				break;
+			}
+		}
+		System.out.println("프로그램 종료...");
+	}
+}

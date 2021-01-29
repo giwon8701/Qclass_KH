@@ -1,0 +1,157 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class MTest {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("메뉴 선택");
+		System.out.println("1:전체선택 2:특정 부서 선택 3: 부서 추가 4: 부서 수정 5: 부서 삭제 6: 종료");
+		int select = sc.nextInt();
+		sc.close();
+
+		switch(select) {
+		 case 1:
+		   selectList();
+		   break;
+		 case 2:
+		   selectOne();
+		   break;
+		  case 3:
+		    insert();
+		    break;
+		  case 4:
+		    update();
+		    break;
+		  case 5:
+		    delete();
+		    break;
+		  default:
+		    System.out.println("종료");
+		}
+	}
+	
+	public static void selectList() {
+		// 1. driver 연결
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		// 2. 계정 연결
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String user = "kh";
+		String password = "kh";
+		
+		Connection con = null;
+		try {
+			con = DriverManager.getConnection(url, user, password);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// 3. query 준비
+		String sql = " SELECT * FROM DEPT ";
+		Statement stmt = null;
+		
+		try {
+			// 3.
+			stmt = con.createStatement();
+			
+			// 4.
+			ResultSet res = stmt.executeQuery(sql);
+			while (res.next()) {
+				System.out.println(res.getInt("DEPTNO") + " \t " + res.getString("DNAME") + " \t " + res.getString("LOC"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+		// 5. db 종료
+			try {
+				stmt.close();
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	public static void selectOne() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println(부서이름 입력 : );
+		String dname = sc.next();
+		
+		// 1. driver 연결
+				try {
+					Class.forName("oracle.jdbc.driver.OracleDriver");
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+				
+				// 2. 계정 연결
+				String url = "jdbc:oracle:thin:@localhost:1521:xe";
+				String user = "kh";
+				String password = "kh";
+				
+				Connection con = null;
+				try {
+					con = DriverManager.getConnection(url, user, password);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+				// 3. query 준비
+				String sql = " SELECT * FROM DEPT "
+						   + " WHERE DNAME = " + dname;
+				Statement stmt = null;
+				
+				try {
+					// 3.
+					stmt = con.createStatement();
+					
+					// 4.
+					ResultSet res = stmt.executeQuery(sql);
+					while (res.next()) {
+						System.out.println(res.getInt("DEPTNO") + " \t " + res.getString("DNAME") + " \t " + res.getString("LOC"));
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+				// 5. db 종료
+					try {
+						stmt.close();
+						con.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+		
+		
+	}
+	
+	
+	
+	public static void insert() {
+		
+	}
+	
+	public static void update() {
+		
+	}
+	
+	public static void delete() {
+		
+	}
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function show01() {
+            var food = document.getElementsByName("food")[0];
+            // selectedIndex : 선택한 option 의 index 반환
+            var idx = food.selectedIndex;
+            // options : selected 태그가 가진 option 태그들 반환
+            var foodName = food.options[idx].value;
+            alert(foodName + " 먹어야지!");
+        }
+
+        function show02() {
+            var food = document.getElementsByName("food")[1];
+            var res = "";
+
+            alert(food.options + " : " + typeof(food.options));
+            for (var i=0; i<food.options.length; i++) {
+                if (food.options[i].selected) {
+                        res += food.options[i].value + " ";
+                }
+            }
+
+            alert(res + " 먹고시퓨다..");
+
+        }
+    </script>
+</head>
+<body>
+
+    <h1>음식 선택하기</h1>
+
+    <form>
+        <select name="food" onchange="show01();">
+            <option>--선택--</option>
+            <option value="한우스테이크">한우스테이크</option>
+            <option value="물냉면">물냉면</option>
+            <option value="스시">스시</option>
+            <option value="샌드위치">샌드위치</option>
+            <option value="육회">육회</option>
+        </select>
+        <br><br><br><br><br><br>
+        <select name="food" multiple="multiple" size="3">
+            <option>--선택--</option>
+            <option value="한우스테이크">한우스테이크</option>
+            <option value="물냉면">물냉면</option>
+            <option value="스시">스시</option>
+            <option value="샌드위치">샌드위치</option>
+            <option value="육회">육회</option>
+        </select>
+        <input type="button" value="선택" onclick="show02();">
+    </form>
+    
+</body>
+</html>

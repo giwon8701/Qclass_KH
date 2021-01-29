@@ -1,0 +1,18 @@
+package com.dao;
+
+public class MemberDao {
+
+	String SELECT_LIST_SQL = "";
+	String SELECT_ONE_SQL = "";
+	String INSERT_SQL = "";
+	String UPDATE_SQL = "";
+	String DELETE_SQL = "";
+	
+	
+	public List<MemberDto> selectList();
+	public MemberDto selectOne(int m_no);
+	public int insert(MemberDto dto);
+	public int update(MemberDto dto);
+	public int delete(int m_no);
+	
+}

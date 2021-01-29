@@ -1,0 +1,34 @@
+/* 1번 */
+h1 {
+    background-color: pink;
+}
+
+/* 2번 */
+#a {
+     color: red;
+}
+
+/* 3번 */
+.b {
+    color: blue;
+}
+
+/* 4번 */
+* {
+    padding: 2px;
+}
+
+ /* 5번 */
+p > strong {
+    color: orange;
+}
+
+/* 6번 */
+p[id= "c"] + p {
+    color: green;
+}
+
+/* 7번 */
+p[title] {
+    font-size: 20pt;
+}

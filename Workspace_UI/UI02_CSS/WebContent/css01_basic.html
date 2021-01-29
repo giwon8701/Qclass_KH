@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <!--   <link href="css01.css" rel="stylesheet" type="text/css"> -->
+    <!--
+        href : 파일 경로
+        rel : 연결 대상의 속성 (stylesheet -> 스타일과 관련된 파일)
+        type : 해당 파일의 정보 (text로 이루어져 있으며 / css기능을 한다.)
+    -->
+    <style type="text/css">
+
+        @import url("css01.css");
+
+        p {
+            background-color: yellow;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>css 기본 문법</h1>
+
+    <h3>작성방식 3가지</h3>
+
+    <b style="color: gray;">1. 인라인 스타일시트 : 우선순위 높다!</b>
+
+    <p>
+        <span>2. 내부 스타일시트 : html 내부에 간단하게 작성</span><br>
+        <b>3. 외부 스타일시트 : css파일을 만든다.</b>
+    </p>
+
+</body>
+
+</html>

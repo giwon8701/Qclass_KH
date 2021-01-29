@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+
+	<script type="text/javascript">
+		/*
+		function tableVal() {
+			// form태그들 중 첫번째 태그
+			var doc = document.forms[0];
+			// form의 name을 통해 입력받은 값을 가져옴
+			var vals = [doc.id.value, doc.pw.value, doc.addr.value, doc.phone.value];
+			
+			// 입력받은 값이 비어있는지 확인
+			for (var i = 0; i < vals.length; i++) {
+				if (vals[i] == null || vals[i] == "" || vals[i] == undefined) {
+					alert("모든 항목을 입력해 주세요");
+					break;
+				}
+			}
+				// addtr이라는 tbody에 createRow함수를 통해 row만들어줘서 넣어줌
+				document.getElementById("addtr").appendChild(createRow(vals));
+		}
+		*/
+		// 추가
+		function tableVal() {
+			// form태그들 중 첫번째 태그
+			var doc = document.forms[0];
+			// form의 name을 통해 입력받은 값을 가져옴
+			var vals = [doc.id.value, doc.pw.value, doc.addr.value, doc.phone.value];
+			
+			var bool = true;
+			// 입력받은 값이 비어있는지 확인
+			for (var i = 0; i < vals.length; i++) {
+				if (vals[i] == null || vals[i] == "" || vals[i] == undefined) {
+					// 입력받은 값중 하나라도 값이 비어있으면 false 넣어줌
+					bool = false;
+					alert("모든 항목을 입력해 주세요");
+					break;
+				}
+			}
+			// bool이 true일때만
+			if (bool) {
+				// addtr이라는 tbody에 createRow함수를 통해 row만들어줘서 넣어줌
+				document.getElementById("addtr").appendChild(createRow(vals));
+			}
+		}
+
+		function createRow(vals) {
+			// tr태그를 만들어줌
+			var tr = document.createElement("tr");
+			for (var i = 0; i < vals.length; i++) {
+				// td태그 하나당 val값(입력받은값-id,pw,addr,phone)을 하나씩 넣어줌
+				var td = document.createElement("td");
+				td.textContent = vals[i];
+				// 값을 넣어준 td태그를 tr태그에 child로 추가함 
+				tr.appendChild(td);
+			}
+
+			// dTd -> delete td
+			// 삭제버튼이 들어갈 td(열) 생성
+			var dTd = document.createElement("td");
+			// dTd라는 이름의 td태그에 삭제버튼을 만들어줌
+			dTd.innerHTML = "<input type='button' value='삭제' onclick='delRow(this)'/>";
+			// dtd를 tr에 넣어줌
+			tr.appendChild(dTd);
+
+			// 준비된 tr을 리턴해줌
+			return tr;
+		}
+
+		// 전체삭제
+		function deleteVal() {
+			// addtr -> 우리가 값을 추가하면 생기는 row를 담고있는 tbody
+			var tbody = document.getElementById("addtr");
+			// tbody가 자식노드가 있다면
+			while (tbody.hasChildNodes()) {
+				// 자식노드가 하나도 없을때까지 자식노드를 계속 삭제한다.
+				tbody.removeChild(tbody.lastChild);
+			}
+		}
+
+		// 1줄 삭제 (createRow()에서 row마다 삭제버튼이 들어가있음)
+		// ele = 타겟이 되는 태그(현재 input태그로 잡아놓은 상태임)
+		function delRow(ele) {
+			// ele(input)의 부모노드(td)의 부모노드(tr)
+			var delTr = ele.parentNode.parentNode;
+			// 추가한 값(id,pw,addr,phone)들이 들어가있는 tbody
+			var tbody = document.getElementById("addtr");
+			// 위의 tbody에서 타겟이 되는 input의 tr을 삭제한다. (tbody - tr - td)
+			tbody.removeChild(delTr);
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<form>
+		<table id="intable">
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="id"></td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="text" name="pw"></td>
+			</tr>
+			<tr>
+				<td>주소</td>
+				<td><input type="text" name="addr"></td>
+			</tr>
+			<tr>
+				<td>전화번호</td>
+				<td><input type="text" name="phone"></td>
+			</tr>
+		</table>
+		<input type="button" value="추가" onclick="tableVal();" />
+		<input type="button" value="전체삭제" onclick="deleteVal();" />
+	</form>
+	<div id="addtable">
+		<table border="1" id="ctb">
+			<col width="100px" />
+			<col width="100px" />
+			<col width="300px" />
+			<col width="200px" />
+			<col width="100px" />
+			<thead>
+				<tr>
+					<th>아이디</th>
+					<th>비밀번호</th>
+					<th>주소</th>
+					<th>전화번호</th>
+					<th>삭제</th>
+				</tr>
+			</thead>
+			<tbody id="addtr"></tbody>
+		</table>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+</head>
+
+<body>
+<form = "/testw/product" method="post">
+	<fieldset>
+		<legend>납품자정보</legend>
+		<ol>
+			<li>
+			<label for="text">납품자명:</label>
+			<input type="text" name="name" placeholder="name" autocomplete="on" required>
+			</li>
+			
+			<li>
+			<label>email:</label>
+			<input type="text" name="email" placeholder="answs@namver.com" autocomplete="on" required>
+			</li>
+			
+			<li>
+			<label>홈페이지:</label>
+			<input type="text" name="homepage" placeholder="http://" autocomplete="on" required>
+			</li>
+		</ol>
+	</fieldset>
+</form>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 명시적 함수
+        function func01() {
+            alert("명시적 함수");
+        }
+
+        // 익명 함수
+        var func02 = function() {
+            alert("익명 함수");
+        }
+
+        function literalPrn(literal) {
+           literal("안녕하세요, 리터럴입니다.");
+        }
+
+        function func03() {
+            // 함수가 파라미터로 전달됨 (함수 리터럴)
+            literalPrn(function(msg) {
+                                        alert(msg);
+                                    }
+            );
+        }
+
+        // arguments: 함수에 전달되는 아규먼트들을 배열의 값으로 가짐
+        function valTest() {
+            var res = "";
+
+            for (var i=0; i<arguments.length; i++) {
+                res += arguments[i];
+            }
+
+            alert(res);
+        }
+
+        // closure : 외부함수 안에 있는 내부함수. (내부함수에서 외부함수에 있는 변수, 파라미터 등 접근 가능)
+        function closureTest(val) {
+            var msg = "!!!";
+            function addVal() {
+                alert(val + msg);
+            }
+            return addVal;
+        }
+
+        function amEdu(val) {
+            closureTest(val)();
+        }
+    </script>
+</head>
+<body>
+
+    <h1>함수!!</h1>
+
+    <h2>함수의 종류</h2>
+    <p onclick="func01();">명시적 함수</p>
+    <p onclick="func02();">익명 함수</p>
+    <p onclick="func03();">함수 리터럴 (리터럴 함수)</p>
+
+    <h2 onclick="valTest('kh', '정보교육원', 'qclass');">args(arguments) 속성</h2>
+
+    <h2>클로저(내부함수 리턴)</h2>
+    <label for="am">오전강의</label>
+    <input type="text" id="am" value="">
+    <input type="button" value="클릭!" onclick="amEdu(am.value);">
+    
+</body>
+</html>

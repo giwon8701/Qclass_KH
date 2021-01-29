@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function locationTest(){
+		// location.reload();							// 새로고침
+		// location.href="http://www.naver.com";		// naver 이동
+		// location.assign("http://www.naver.com");		// href와 같음
+		location.replace("http://www.naver.com");		// 전 단계 이력 삭제
+	}
+
+</script>
+</head>
+<body>
+
+	<a href="https://www.google.com/search?sxsrf=ALeKk02TQLMYhW2UTl-xlhvTrmSfc3Pvvw%3A1611636942426&source=hp&ei=zqAPYJ3RF6uymAWah5GQDw&q=kh%EC%A0%95%EB%B3%B4%EA%B5%90%EC%9C%A1%EC%9B%90&oq=kh%EC%A0%95%EB%B3%B4%EA%B5%90%EC%9C%A1&gs_lcp=CgZwc3ktYWIQAxgAMggIABCxAxCDATICCAAyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAMgIIADoHCCMQ6gIQJzoECCMQJzoFCAAQsQM6BAgAEAo6BAgAEANQvwVYphhgsCtoAnAAeACAAXWIAZ8KkgEDNS44mAEAoAEBqgEHZ3dzLXdperABCg&sclient=psy-ab">이동</a>
+	
+	<button onclick="locationTest();">이동</button>
+
+</body>
+</html>

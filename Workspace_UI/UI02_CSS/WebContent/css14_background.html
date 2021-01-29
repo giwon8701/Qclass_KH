@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div, p {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        #bg-size {
+            background: url("resources/img/img01.PNG");
+            background-size: contain;
+            /*
+            cover : 한개만
+            contain : 바둑판
+            */
+        }
+        
+        #multi-bg {
+            background: url("resources/img/img01.PNG"), url("resources/img/img02.jpg");
+            background-size: container;
+        }
+
+        #bg-clip {
+            border: 10px dotted black;
+            padding: 50px;
+            background: blue;
+            background-clip:padding-box;
+        }
+
+        #txt-shdw {
+            text-shadow: 1px 2px #ccc;
+        }
+
+        #wrap {
+            word-wrap: break-word;
+        }
+
+        @font-face {
+            font-family: "Goyang";
+            src: url("resources/font/Goyang.ttf") format("truetype");
+        }
+
+        #goyang {
+            font-family: "Goyang";
+            font-size: 30pt;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>background-size</h1>
+    <div id="bg-size">background-size</div>
+
+    <h1>multi-background</h1>
+    <div id="multi-bg">multi-background</div>
+
+    <h1>background-clip</h1>
+    <div id="bg-clip">background-clip</div>
+
+    <h1>text-shadow</h1>
+    <div id="txt-shdw">text-shadow</div>
+
+    <h1>word-wrap</h1>
+    <p id="wrap">dkflsjeflksjfoiesjfoisefnslkefnsk.</p>
+
+    <h1>font-face</h1>
+    <div id="goyang">고양시 고양체 귀엽다.</div>
+
+</body>
+</html>

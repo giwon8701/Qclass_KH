@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+header img {
+margin-right:50px;
+width:100px;
+height:100px;
+float:left;
+}
+.nav li {
+	float: left;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+#content {
+width: 100%;
+height: 400px;
+background: gray;
+}
+</style>
+</head>
+
+<body>
+	<header>
+		<img src="resources/images/logo.gif">
+		<form>
+			<ul>
+				<li>
+					<label>아이디 : </label>
+					<input type="text">
+				</li>
+				<li>
+					<label>비밀번호 : </label>
+					<input type="text">
+				</li>
+				<li style="list-style-type:none;">
+					<input type="submit" value="로그인">
+					<button>회원가입</button>
+				</li>
+			</ul>
+		</form>
+		
+		<br>
+		
+		<ul class="nav">
+			<li><a href="#">메인</a></li>
+			<li><a href="#">공지사항</a></li>
+			<li><a href="#">자유게시판</a></li>
+			<li><a href="#">갤러리</a></li>
+			<li><a href="#">회원관리</a></li>
+			<li><a href="#">채팅하기</a></li>
+		</ul>
+	</header>
+	<br><br>
+	
+	<section id="content">
+		
+	</section>
+	
+	<footer>
+		<p>Copyright © 1998-2019 KH Information Educational Institute All Right Reserved</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+package com.dao;
+
+import static com.common.JDBCTemplate.getConnection;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.dto.MemberDto;
+
+public class MemberDaoImpl implements MemberDao {
+
+	@Override
+	public List<MemberDto> selectList() {
+		Connection con = getConnection();
+		Statement stmt = null;
+		ResultSet rs = null;
+		List<MemberDto> list = new ArrayList<MemberDto>();
+		
+		try {
+			stmt = con.createStatement();
+			
+			rs = stmt.executeQuery(SELECT_LIST_SQL);
+			// 번호, 이름, 나이, 성별, 지역, 직업, 전화번호, 이메일
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return null;
+	}
+
+	@Override
+	public MemberDto selectOne(int m_no) {
+		return null;
+	}
+
+	@Override
+	public int insert(MemberDto dto) {
+		return 0;
+	}
+
+	@Override
+	public int update(MemberDto dto) {
+		return 0;
+	}
+
+	@Override
+	public int delete(int m_no) {
+		return 0;
+	}
+
+}

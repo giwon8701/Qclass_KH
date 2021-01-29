@@ -1,0 +1,119 @@
+
+/* 타입 선택자 */
+
+pre {
+    text-align: center;
+}
+h1 {
+    color: purple;
+}
+
+
+/* id 선택자 */
+
+#sid01 {
+    color: red;
+}
+#sid02 {
+    color: green;
+}
+#sid03 {
+    background-color: blue;
+    color: white;
+}
+
+
+/* class 선택자 */
+
+.scls {
+    color: lightgray;
+}
+
+
+/* 전체 선택자 */
+
+* {
+    text-align: right;
+}
+
+
+/* 자식 선택자 */
+
+#at > p {
+    color: #2CE0BC;
+}
+
+#at > div > p {
+    background-color: black;
+    color: white;
+}
+
+
+/* 하위 선택자 */
+
+div span {
+    background-color: fuchsia;
+}
+
+
+/* 인접 선택자 */
+
+h3 + b {
+    color: silver;
+}
+b + span {
+    color: gold;
+}
+
+
+/* 속성 선택자 */
+
+p[title] {
+    color: lime;
+}
+
+p[title="b"] {
+    background-color: yellow;
+}
+
+
+/* 가상 클래스 선택자 */
+
+a:link {
+    color: hotpink;
+    font-size: 20pt;
+}
+a:visited {
+    color: skyblue;
+    font-size: 50pt;
+}
+a:hover {
+    background-color: maroon;
+    font-size: 35pt;
+}
+a:active {
+    color: red;
+}
+input: checked {
+    width: 100px;
+    height: 100px;
+}
+
+
+/* 그룹 선택자 */
+
+p, pre, strong {
+    background-color: green;
+    color: yellow;
+}
+
+
+/* 종속 선택자 */
+
+li.scls01 {
+    background-color: red;
+}
+
+li.scls02#sidul {
+    font-size: 40px;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        p {
+            border: 1px solid red;
+        }
+    </style>
+    <script type="text/javascript">
+        var count = 1;
+
+        function addAppend() {
+            var fieldset = document.getElementById("addele");
+
+            var p = document.createElement("p");
+            p.textContent = "자식요소들 중 가장 마지막에 들어갑니다." + (count++);
+
+            fieldset.appendChild(p);
+        }
+
+        var cnt = 1;
+
+        function addBefore() {
+            var p = document.createElement("p");
+            p.textContent = "선택된 엘리먼트의 앞에 붙여넣어요." + (cnt++);
+
+            var div = document.querySelector("fieldset > div");
+            var fieldset = document.getElementById("addele");
+
+            fieldset.insertBefore(p, div);
+        }
+
+        function moveElement() {
+            var ele = document.querySelector("fieldset").children[1];
+            var body = document.body;
+            body.appendChild(ele);
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1>태그 추가하기</h1>
+
+    <button onclick="addAppend();">appendChild()</button>
+    <button onclick="addBefore();">insertBefore()</button>
+    <button onclick="moveElement();">appendChild를 이용한 엘리먼트 이동</button>
+
+    <fieldset id="addele">
+        <legend>부모태그</legend>
+        <div>div태그</div>
+    </fieldset>
+
+
+
+    <hr>
+
+    <h3>문제1. test01 태그에 "dom test"라는 내용을 가진 div 태그 생성하기</h3>
+    <button onclick="addTest();">클릭</button>
+    <h3>
+        문제2. test01 태그 안에 생성된 div 태그들을 test02 태그 안으로 이동하기
+    </h3>
+    <button onclick="moveTest();">클릭</button><br><br>
+
+    *test01
+    <div id="test01"></div>
+    *test02
+    <div id="test02"></div>
+
+</body>
+<style>
+    #test01,
+    #test02 {
+        width: 300px;
+        height: 300px;
+        border: 1px dotted blue;
+    }
+</style>
+<script type="text/javascript">
+    function addTest() {
+        var test01 = document.querySelector("#test01");
+        var createDiv = document.createElement("div");
+        createDiv.textContent = "dom test";
+        test01.appendChild(createDiv);
+
+    }
+    function moveTest() {
+        var test02 = document.querySelector("#test02");
+        var test01_children = document.querySelector("#test01").children;
+        if (test01_children.length > 0) {
+            test02.appendChild(test01_children[0]);
+        }
+    }
+</script>
+
+</html>

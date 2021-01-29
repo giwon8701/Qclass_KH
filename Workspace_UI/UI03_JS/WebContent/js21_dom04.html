@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        img {
+            vertical-align: middle;
+            width: 300px;
+            height: 300px;
+        }
+        a {
+            font-size: 30px;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload=function() {
+            var anchs = document.querySelectorAll("a");
+            var img = document.querySelector("img");
+            var cnt = 1;
+
+            anchs[0].onclick=function() {
+                var imgAlt = img.getAttribute("alt");
+                if (imgAlt == "img1") {
+                    cnt = 3;
+                    img.setAttribute("alt", "img3");
+                    img.setAttribute("src", "resources/image/img"+cnt+".jpg");
+                } else {
+                    cnt--;
+                    img.setAttribute("alt", "img"+cnt);
+                    img.setAttribute("src", "resources/image/img"+cnt+".jpg");
+                }
+            }
+            anchs[1].onclick=function() {
+                var imgAlt = img.getAttribute("alt");
+                if (imgAlt == "img3") {
+                    cnt = 1;
+                    img.setAttribute("alt", "img1");
+                    img.setAttribute("src", "resources/image/img"+cnt+".jpg");
+                } else {
+                    cnt++;
+                    img.setAttribute("alt", "img"+cnt);
+                    img.setAttribute("src", "resources/image/img"+cnt+".jpg");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div>
+        <a href="#" id="lt">◀</a>
+        <img alt="img01" src="resources/image/img1.jpg">
+        <a href="#" id="gt">▶</a>
+    </div>
+    
+</body>
+</html>
