@@ -1,5 +1,0 @@
-.navi {}
-.navi li {
-	background: red;
-	color: white;
-}

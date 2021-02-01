@@ -1,8 +1,0 @@
-.navi {}
-.navi li {
-	float: left;
-	position: relative;
-	padding: 0;
-	line-height: 40px;
-	background:#600;
-}

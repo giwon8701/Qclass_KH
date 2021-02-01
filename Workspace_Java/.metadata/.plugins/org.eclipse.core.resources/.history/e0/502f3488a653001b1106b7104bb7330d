@@ -1,6 +1,0 @@
-.navi {
-	list-style-type : nonew;
-}
-.navi li {
-	float: left;
-}

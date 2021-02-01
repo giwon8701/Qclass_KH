@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="resources/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("div:eq(0)").css({"border" : "1px solid red", "width" : "400px", "height" : "200px"});
+            $("#view").css("border", "1px solid red").css("width", "400px").css("height", "100px");
+        });
+
+        // tag로 선택
+        function sel01() {
+            $("span").css("color", "red");
+            $("#view").text('$("span").css("color", "red");');
+        }
+
+        // id로 선택
+        function sel02() {
+            jQuery("#t1").css("color", "hotpink");
+            jQuery("#view").text('jQuery("#t1").css("color", "hotpink");');
+        }
+
+        // class로 선택
+        function sel03() {
+            $(".t2").css("color", "blue");
+            $("#view").text(' $(".t2").css("color", "blue");');
+        }
+
+        // parent child 선택
+        function sel04() {
+            $("li span").css("color", "violet");
+            $("#view").text('$("li span").css("color", "violet)');
+        }
+
+        // parent > child 선택
+        function sel05() {
+            $("li > span").css("color", "brown");
+            $("#view").text('$("li > span").css("color", "brown");');
+        }
+
+        function sel06() {
+            $("li:nth-child(6)").css("background-color", "yellow");
+        }
+
+        function sel07() {
+            $("li:first-child").css("background-color", "aquamarine");
+            $("#view").text('$("li:first-child").css("background-color", "aquamarine");');
+        }
+
+        function sel08() {
+            $("li:last-child").css("background-color", "black").css("color", "white");
+            $("#view").text('$("li:last-child").css("background-color", "black").css("color", "white");');
+        }
+
+        function cls() {
+            $("*").css("color", "black").css("background-color", "");
+            //$("li").css("background-color", "").css("color", "black");
+            //$("span").css("color", "black");
+            $("#view").text('');
+        }
+    </script>
+</head>
+<body>
+    
+    <h1>selector 표현식</h1>
+
+    <div>
+        <ul>
+            <li><span>tag로 선택</span></li>
+            <li id="t1">id로 선택</li>
+            <li class="t2">class로 선택</li>
+            <li><span>parent child 선택</span></li>
+            <li><b><span>parent &gt; child</span></b> 선택</li>
+            <li>:nth-child(n/odd/evn)로 선택</li>
+            <li>:first-child로 선택</li>
+            <li>:last-child로 선택</li>
+        </ul>
+    </div>
+
+    <br>
+
+    <div>
+        <button onclick="sel01();">tag</button>
+        <button onclick="sel02();">id</button>
+        <button onclick="sel03();">class</button>
+        <button onclick="sel04();">p c</button>
+        <button onclick="sel05();">p &gt; c</button>
+        <button onclick="sel06();">nth</button>
+        <button onclick="sel07();">first</button>
+        <button onclick="sel08();">last</button>
+        <br>
+        <button onclick="cls();">clear</button>
+    </div>
+
+    <h2>코드</h2>
+    <div id="view"></div>
+</body>
+</html>
