@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="resources/js/jquery-3.5.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            // .submit -> 해당 form 에서 submit 이벤트가 발생했을 떄, 실행
+            $("#signal").submit(function() {
+                if($(".infobox").val() == null || $(".infobox").val() == "") {
+                    $(".error").show();
+                    return false;
+                }
+            });
+        
+            $("#confirm").click(function() {
+                $("#result").empty();
+
+                // 유효값 처리
+                if ($("input[name=chk]:checked").length == 0) {
+                    alert("하나 이상 선택해 주세요");
+                } else {
+                    var total = 0;
+                    $("input[name=chk]:checked").each(function(i) {
+                        // var chk = $(this);
+                        var chk = $("input[name=chk]:checked").eq(i);
+                        var book = chk.next().text();
+                        var price = chk.val();
+
+                        $("#result").append(book + ": " + price + "<br>");
+                        total += parseInt(price);
+                    })
+                    $("#result").append("총 : " + total);
+                }
+            });
+
+            $("input[name=chk]").click(function() {
+                    if ($("input[name=chk]").length === $("input[name=chk]:checked").length) {
+                        $("input[name=all]").prop("checked", true);
+                    } else {
+                        $("input[name=all]").prop("checked", false);
+                    }
+            });
+
+        });
+            
+            function allcheck(checked) {
+                $("input[name=chk]").each(function() {
+                    if (checked) {
+                        $(this).prop("checked", true);
+                    } else {
+                        $(this).prop("checked", false);
+                    }
+                });
+            }
+            
+    </script>
+</head>
+<body>
+
+    <form action="" id="signal">
+        <div>
+            <span class="label">User ID</span>
+            <input type="text" class="infobox" name="userid">
+            <span class="error" hidden="" style="color: red;">반드시 입력하세요!</span>
+        </div>
+        <input type="submit" class="submit" value="입력">
+    </form>
+
+    <hr>
+
+    <fieldset style="width: 300px;">
+        <legend>체크 여부 확인</legend>
+
+        <input type="checkbox" name="all" onclick="allcheck(this.checked);">전체 선택<br>
+
+        <input type="checkbox" name="chk" value="30000"><b>Java</b><br>
+        <input type="checkbox" name="chk" value="25000"><b>Oracle</b><br>
+        <input type="checkbox" name="chk" value="30000"><b>JavaScript</b><br>
+
+        <input type="button" value="확인" id="confirm"><br>
+        <span>선택한 책 가격</span>
+        <div id="result"></div>
+    </fieldset>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        .menu {
+            width: 200px;
+        }
+    </style>
+    <script type="text/javascript" src="resources/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $(".menu div").css("display", "none");
+
+            $(".menu").hover(
+                function () {
+                    $(this).children("div").toggle();
+                }
+            )
+        });
+
+    </script>
+
+    </script>
+</head>
+
+<body>
+
+    <b>DOM 탐색 메서드</b><br>
+
+    <div id="menu1" class="menu">
+        <a href="jq06_dom01.html">필터링 메서드</a>
+        <div>.eq()</div>
+        <div>.slice()</div>
+        <div>.first()</div>
+        <div>.last()</div>
+    </div>
+
+    <div id="menu2" class="menu">
+        <a href="jq07_dom02.html">트리 탐색 메서드</a>
+        <div>.find()</div>
+        <div>.children()</div>
+        <div>.parent()</div>
+        <div>.next()</div>
+    </div>
+
+    <div id="menu3" class="menu">
+        <a href="jq08_dom03.html">기타 탐색 메서드</a>
+        <div>.add()</div>
+        <div>.is()</div>
+    </div>
+
+</body>
+
+</html>

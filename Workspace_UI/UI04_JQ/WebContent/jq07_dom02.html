@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="resources/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("div").find("b").css({"font-size": "30pt", "color" : "red"});
+            $("div").children("#chd").text("2.children()");
+            $("p").parent().css("background-color", "hotpink");
+            $("p>b").parents("div").css("background-color", "skyblue");
+            $("p").eq(0).next().css({"font-size" : "50pt", "color" : "yellow"});
+        });
+    </script>
+</head>
+<body>
+
+    <pre>
+        <b>find("selector") : 선택한 엘리먼트의 자손들 중에 탐색하고자 하는 엘리먼트를 찾는다.</b>
+        <b>children("selector") : 선택한 엘리먼트의 자식요소들 중에 탐색하고자 하는 엘리먼트를 찾는다.</b>
+        <b>parent() / parents("selector") : 선택한 엘리먼트의 부모요소를 찾는다.</b>
+        <b>next("selector") : 선택한 엘리먼트 다음에 따라오는 요소를 찾는다.</b>
+    </pre>
+
+    <div>
+        <p><b>1</b></p>
+        <p id="chd">2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+    </div>
+    
+</body>
+</html>

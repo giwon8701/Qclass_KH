@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="resources/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        function test01() {
+            var doc = $("input:text").val();
+            // JS : .value
+            // JQ : .val()
+
+            alert(doc);
+        }
+        function test02() {
+            var doc = $("input:radio").val();
+            alert(doc);
+        }
+        $(function() {
+            var sele = document.getElementsByTagName("select")[0];
+            
+            sele.onchange=function() {
+                alert(sele.options[sele.selectedIndex].value + " : " + sele.selectedIndex);
+            }
+        })
+    </script>
+</head>
+<body>
+
+    <form action="">
+        <input type="text">
+        <input type="button" value="선택" onclick="test01();">
+        <input type="radio" value="20/11/20" onclick="test02();">20년11월20일부터
+        <input type="checkbox" value="오픈소스 기반 머신러닝 플랫폼을 활용한 응용소프트웨어 개발자 양성과정" onclick="test03();">ai과정
+        <div id="view"></div>
+        <select>
+            <option value="1">one</option>
+            <option value="2">two</option>
+            <option value="3">three</option>
+        </select>
+    </form>
+    
+</body>
+</html>
