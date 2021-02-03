@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .img {width: 200px; height: 200px;}
+        .addSize {width: 300px; height: 300px;}
+        .onOffImg {display: none;}
+    </style>
+    
+    <!-- cdn -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                $("img").toggleClass("onOffImg");
+            });
+
+            $("img").click(function() {
+                if ($(this).hasClass("addSize")) {
+                    $(this).removeClass("addSize");
+                } else {
+                    $(this).addClass("addSize");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    
+    <button id="btn">image on/off</button>
+
+    <br>
+
+    <img alt="img01" src="resources/image/img1.jpg" title="이미지 1번">
+    <img alt="img02" src="resources/image/img2.jpg" title="이미지 2번">
+    <img alt="img03" src="resources/image/img3.jpg" title="이미지 3번">
+
+</body>
+</html>
