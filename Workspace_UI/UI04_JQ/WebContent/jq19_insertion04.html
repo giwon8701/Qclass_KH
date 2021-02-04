@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .box {
+            border: 2px solid red;
+        }
+
+        #menu {
+            background-color: skyblue;
+            text-align: right;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20pt;
+        }
+
+        #menu div {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="resources/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // $("<tag>") = document.createElement("tag")
+            var $box = $("<div>").addClass("box");
+
+            // wrap을 통해 .sub_menu:first를 <div class="box">로 감싸줌
+            $(".sub_menu:first").wrap($box);
+
+            $(".sub_menu").click(function () {
+                $(".sub_menu").each(function () {
+                    // .sub_menu가 부모일 경우
+                    if ($(this).parent().is(".box")) { // this -> 박스 걸려있는 div
+                        // box에 걸린 wrap을 풀어줌 (부모로 걸려있는 box를 풀어줌)
+                        $(this).unwrap(".box");
+                    }
+                });
+                // 클릭한 div에 box를 씌워줌
+                $(this).wrap($box); // this -> 클릭한 div
+            });
+        })
+    </script>
+</head>
+
+<body>
+
+    <div id="menu">
+        <div class="sub_menu">
+            <a href="#"><span>국비지원</span></a>
+        </div>
+        <div class="sub_menu">
+            <a href="#"><span>훈련검색</span></a>
+        </div>
+        <div class="sub_menu">
+            <a href="#"><span>기관검색</span></a>
+        </div>
+        <div class="sub_menu">
+            <a href="#"><span>질문답변</span></a>
+        </div>
+        <div class="sub_menu">
+            <a href="#"><span>과정후기</span></a>
+        </div>
+    </div>
+
+</body>
+
+</html>

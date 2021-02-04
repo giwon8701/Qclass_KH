@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="UI00_Hello" path="/UI00_Hello" reloadable="true" source="org.eclipse.jst.jee.server:UI00_Hello"/><Context docBase="UI01_HTML" path="/UI01_HTML" reloadable="true" source="org.eclipse.jst.jee.server:UI01_HTML"/><Context docBase="UI02_CSS" path="/UI02_CSS" reloadable="true" source="org.eclipse.jst.jee.server:UI02_CSS"/><Context docBase="UI00_Homework" path="/UI00_Homework" reloadable="true" source="org.eclipse.jst.jee.server:UI00_Homework"/><Context docBase="UI03_JS" path="/UI03_JS" reloadable="true" source="org.eclipse.jst.jee.server:UI03_JS"/></Host>
+      <Context docBase="UI00_Hello" path="/UI00_Hello" reloadable="true" source="org.eclipse.jst.jee.server:UI00_Hello"/><Context docBase="UI01_HTML" path="/UI01_HTML" reloadable="true" source="org.eclipse.jst.jee.server:UI01_HTML"/><Context docBase="UI02_CSS" path="/UI02_CSS" reloadable="true" source="org.eclipse.jst.jee.server:UI02_CSS"/><Context docBase="UI00_Homework" path="/UI00_Homework" reloadable="true" source="org.eclipse.jst.jee.server:UI00_Homework"/><Context docBase="UI03_JS" path="/UI03_JS" reloadable="true" source="org.eclipse.jst.jee.server:UI03_JS"/><Context docBase="UI04_JQ" path="/UI04_JQ" reloadable="true" source="org.eclipse.jst.jee.server:UI04_JQ"/></Host>
     </Engine>
   </Service>
 </Server>

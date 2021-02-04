@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	* {margin: 0px; padding: 0px;}
+	table {width: 400px;}
+	table tr:nth-child(odd) {background: orange;}
+	fieldset {width: 400px;}
+	body {width: 1000px; margin: 50px auto;}
+</style>
+<script type="text/javascript" src="resources/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#emp_search").click(function() {
+			var empid = $("input[name=empid]").val();
+			if (!isNaN(empid) && empid.length > 2) {
+				
+				$.ajax({
+					url: "./emplist.xml",			// 통신할 서버(페이지, 파일) 주소
+					method: "get",					// get/post 방식 설정
+					async: true,					// 비동기 여부 (default: true) -> false: 동기식
+					dataType: "xml",				// 통신이 성공하면 리턴받을 data의 type (text, xml, json, ...)
+					success: function(data) {
+						var empInfo = $(data).find("EMPLOYEE_ID:contains("+empid+")").parent();
+						
+						if (empInfo.is("ROW")) {
+							$("table input").each(function(i) {
+								$(this).val($(empInfo).children().eq(i).text());
+							});
+						} else {
+							alert("검색대상이 존재하지 않습니다.");	
+						}
+					},
+					error: function(request, error) {
+						alert("code: " + request.status + "\n" +
+							  "message: " + request.responseText + "\n" +
+							  "error: " + error);
+					}
+				})
+				
+			} else {
+				alert("사원번호를 다시한번 확인해 주세요!");
+			}
+		});
+	});
+	
+	// ajax = Asynchronous Javascript And Xml : 서버 처리를 기다리지 않고, 비 동기적 요청
+</script>
+</head>
+<body>
+
+	<fieldset>
+		<legend>사원정보 조회</legend>
+		<input type="text" name="empid">
+		<input type="button" id="emp_search" value="조회">
+	</fieldset>
+	
+	<table>
+		<tr>
+			<th>사원번호</th>
+			<td><input type="text" name="empNum"></td>
+		</tr>
+		<tr>
+			<th>이름</th>
+			<td><input type="text" name="lastName"></td>
+		</tr>
+		<tr>
+			<th>이메일</th>
+			<td><input type="text" name="email"></td>
+		</tr>
+		<tr>
+			<th>전화번호</th>
+			<td><input type="text" name="phone"></td>
+		</tr>
+		<tr>
+			<th>입사일</th>
+			<td><input type="text" name="hire"></td>
+		</tr>
+	</table>
+</body>
+</html>
