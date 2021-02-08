@@ -1,6 +1,6 @@
 <%@page import="java.sql.*"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,14 +10,14 @@
 <body>
 <table border="1">
 <%
-	// scriptlet : ¿©±â°¡ ÀÚ¹Ù ÄÚµå ¿µ¿ªÀÌ´Ù.
+	// scriptlet : ì—¬ê¸°ê°€ ìžë°” ì½”ë“œ ì˜ì—­ì´ë‹¤.
 	
-	// EMP Å×ÀÌºí ÀüÃ¼ Ãâ·Â
+	// EMP í…Œì´ë¸” ì „ì²´ ì¶œë ¥
 	
-	// 1. driver ¿¬°á
+	// 1. driver ì—°ê²°
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	
-	// 2. °èÁ¤ ¿¬°á
+	// 2. ê³„ì • ì—°ê²°
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String user = "kh";
 	String password = "kh";
@@ -25,7 +25,7 @@
 	
 	con = DriverManager.getConnection(url, user, password);
 	
-	// 3. query ÁØºñ
+	// 3. query ì¤€ë¹„
 	String sql = " SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO " +
 				 " FROM EMP ";
 	
@@ -34,12 +34,12 @@
 	
 	stmt = con.createStatement();
 	
-	// 4. query ½ÇÇà ¹× ¸®ÅÏ
+	// 4. query ì‹¤í–‰ ë° ë¦¬í„´
 	rs = stmt.executeQuery(sql);
 	
 	while(rs.next()) {
 %>
-<!-- HTML ¿µ¿ª -->
+<!-- HTML ì˜ì—­ -->
 	<tr>
 		<td><%=rs.getInt(1) %></td>
 		<td><%=rs.getString(2) %></td>
@@ -56,7 +56,7 @@
 		
 	}
 	
-	// 5. db Á¾·á
+	// 5. db ì¢…ë£Œ
 	rs.close();
 	stmt.close();
 	con.close();
