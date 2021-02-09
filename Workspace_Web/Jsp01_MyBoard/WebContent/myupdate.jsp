@@ -28,7 +28,7 @@
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td><input tyupe="text" name="mytitle" value="<%=mytitle%>"></td>
+				<td><input type="text" name="mytitle" value="<%=mytitle%>"></td>
 			</tr>
 			<tr>
 				<th>내용</th>
@@ -37,7 +37,7 @@
 			<tr>
 				<td>
 					<input type="submit" value="작성">
-					<input type="button" value="취소" onclick="location.href='./myselect.jsp?myno=<%=myno%>'">
+					<input type="button" value="취소" onclick="location.href='./myselect.jsp?myno=<%=myno%>&myname=<%=myname%>&mytitle=<%=mytitle%>&mycontent=<%=mycontent%>'">
 				</td>
 			</tr>
 			</table>
