@@ -26,7 +26,7 @@
 				<td><textarea rows="10" cols="60" name="mycontent"></textarea></td>
 			</tr>
 			<tr>
-				<td>
+				<td colspan="4" align="right">
 					<input type="submit" value="작성">
 					<input type="button" value="취소" onclick="location.href='./mylist.jsp'">
 				</td>
