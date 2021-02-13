@@ -27,14 +27,13 @@
 	if (res > 0) {
 %>
 		<script type="text/javascript">
-		alert("글이 작성되었습니다!");
-		location.href="./selectList.jsp";
+			location.href="./selectList.jsp";
 		</script>
 <%
 	} else {
 %>
 		<script type="text/javascript">
-			alert("글이 작성되지 않았습니다..");
+			alert("글이 작성되지 않았습니다. 글자수를 확인해주세요.");
 			location.href="./insert.jsp";
 		</script>	
 <%		

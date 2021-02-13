@@ -67,11 +67,13 @@ public class MyBoardDao {
 		
 		try {
 			pstm = con.prepareStatement(sql);
+			System.out.println("3. Query 준비");
 			pstm.setInt(1, seq);
 			
 			
 		// 4. query 실행 및 리턴
 			rs = pstm.executeQuery();
+			System.out.println("4. Query 실행 및 리턴");
 			
 			while(rs.next()) {
 				dto.setSeq(rs.getInt(1));
@@ -106,7 +108,9 @@ public class MyBoardDao {
 			pstm.setString(1, dto.getWriter());
 			pstm.setString(2, dto.getTitle());
 			pstm.setString(3, dto.getContent());
+			System.out.println("3. Query 준비");
 			res = pstm.executeUpdate();
+			System.out.println("4. Query 실행 및 리턴");
 			
 			if (res > 0) {
 				commit(con);
@@ -130,15 +134,17 @@ public class MyBoardDao {
 		
 		con = getConnection();
 		
-		String sql = " UPDATE MYBOARD SET TITLE = ?, CONTENT = ? WHERE = ? ";
+		String sql = " UPDATE MYBOARD SET TITLE = ?, CONTENT = ? WHERE SEQ = ? ";
 		
 		try {
 			pstm = con.prepareStatement(sql);
 			pstm.setString(1, dto.getTitle());
 			pstm.setString(2, dto.getContent());
 			pstm.setInt(3, dto.getSeq());
+			System.out.println("3. Query 준비");
 			
 			res = pstm.executeUpdate();
+			System.out.println("4. Query 실행 및 리턴");
 			
 			if (res > 0) {
 				commit(con);
@@ -161,13 +167,15 @@ public class MyBoardDao {
 		int res = 0;
 		
 		con = getConnection();
-		String sql = " DELETE FROM MYBOARD WHERE = ? ";
+		String sql = " DELETE FROM MYBOARD WHERE SEQ = ? ";
 		
 		try {
 			pstm = con.prepareStatement(sql);
 			pstm.setInt(1, seq);
+			System.out.println("3. Query 준비");
 			
 			res = pstm.executeUpdate();
+			System.out.println("4. Query 실행 및 리턴");
 			
 			if (res > 0) {
 				commit(con);
