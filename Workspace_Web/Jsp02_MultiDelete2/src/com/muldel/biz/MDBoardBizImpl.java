@@ -18,27 +18,27 @@ public class MDBoardBizImpl implements MDBoardBiz {
 
 	@Override
 	public MDBoardDto selectOne(int number) {
-		return null;
+		return dao.selectOne(number);
 	}
 
 	@Override
 	public int insert(MDBoardDto dto) {
-		return 0;
+		return dao.insert(dto);
 	}
 
 	@Override
 	public int update(MDBoardDto dto) {
-		return 0;
+		return dao.update(dto);
 	}
 
 	@Override
 	public int delete(int seq) {
-		return 0;
+		return dao.delete(seq);
 	}
 
 	@Override
-	public int multiDelete(int seq) {
-		return 0;
+	public int multiDelete(String[] seq) {
+		return dao.multiDelete(seq);
 	}
 
 }

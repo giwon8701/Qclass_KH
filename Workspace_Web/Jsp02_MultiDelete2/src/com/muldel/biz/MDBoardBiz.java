@@ -12,6 +12,6 @@ public interface MDBoardBiz {
 	public int update(MDBoardDto dto);
 	public int delete(int seq);
 	
-	public int multiDelete(int seq);
+	public int multiDelete(String[] seq);
 	
 }

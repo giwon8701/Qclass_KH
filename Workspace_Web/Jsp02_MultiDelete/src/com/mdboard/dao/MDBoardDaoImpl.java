@@ -1,4 +1,6 @@
-package com.muldel.dao;
+package com.mdboard.dao;
+
+import static com.mdboard.jdbc.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,78 +9,81 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.muldel.db.JDBCTemplate.*;
-
-import com.muldel.biz.MDBoardBiz;
-import com.muldel.biz.MDBoardBizImpl;
-import com.muldel.dto.MDBoardDto;
+import com.mdboard.dto.MDBoardDto;
 
 public class MDBoardDaoImpl implements MDBoardDao {
-	
-	MDBoardBiz biz = new MDBoardBizImpl();
 
 	@Override
 	public List<MDBoardDto> selectList() {
+		List<MDBoardDto> list = new ArrayList<>();
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		List<MDBoardDto> list = new ArrayList<MDBoardDto>();
 		
 		try {
-			pstm = con.prepareStatement(SELECT_LIST_SQL);
-			System.out.println("3. query 준비 : " + SELECT_LIST_SQL);
-			
+			pstm = con.prepareStatement(SQL_SELECT_LIST);
 			rs = pstm.executeQuery();
-			System.out.println("4. query 실행 및 리턴");
-			while (rs.next()) {
+			while(rs.next()) {
 				MDBoardDto dto = new MDBoardDto();
 				dto.setSeq(rs.getInt("SEQ"));
 				dto.setWriter(rs.getString("WRITER"));
-				dto.setTitle(rs.getString("TITLE"));
 				dto.setContent(rs.getString("CONTENT"));
-				dto.setRegDate(rs.getDate("REGDATE"));
-				
+				dto.setDate(rs.getDate("DATE"));
 				list.add(dto);
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rs);
 			close(pstm);
 			close(con);
-			System.out.println("5. db종료");
 		}
-		
 		return list;
 	}
 
 	@Override
-	public MDBoardDto selectOne(int number) {
-		// TODO Auto-generated method stub
-		return null;
+	public MDBoardDto selectOne(int seq) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		MDBoardDto dto = new MDBoardDto();
+		
+		try {
+			pstm = con.prepareStatement(SQL_SELECT_ONE);
+			pstm.setInt(1, seq);
+			rs = pstm.executeQuery();
+			while(rs.next()) {
+				dto.setSeq(rs.getInt(1));
+				dto.setWriter(rs.getString(2));
+				dto.setTitle(rs.getString(3));
+				dto.setContent(rs.getString(4));
+				dto.setDate(rs.getDate(5));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return dto;
 	}
 
 	@Override
 	public int insert(MDBoardDto dto) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int update(MDBoardDto dto) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int delete(int seq) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int multiDelete(int seq) {
-		// TODO Auto-generated method stub
+	public int multiDelete(String[] seq) {
 		return 0;
 	}
 
