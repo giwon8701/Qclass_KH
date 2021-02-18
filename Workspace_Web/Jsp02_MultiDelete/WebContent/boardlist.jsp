@@ -23,6 +23,12 @@
 			}
 		});
 	});
+	function allCheck(bool) {
+		var chks = document.getElementsByName("chk");
+		for (var i=0; i<chks.length; i++) {
+			chks[i].checked = bool;
+		}
+	}
 </script>
 </head>
 <%
@@ -46,7 +52,7 @@
 	
 	<table border="1">
 	<tr>
-		<th><input type="checkbox" name="all" onclick="allChk(this.checked);"></th>
+		<th><input type="checkbox" name="all" onclick="allCheck(this.checked);"></th>
 		<th>번호</th>
 		<th>작성자</th>
 		<th>제목</th>
@@ -57,7 +63,7 @@
 	if (list.size() == 0) {
 %>
 		<tr>
-			<td colspan="5">--------------작성된 글이 없습니다-------------</td>
+			<td colspan="5">--------------작성된 글이 존재하지 않습니다-------------</td>
 		</tr>
 <%
 	} else {

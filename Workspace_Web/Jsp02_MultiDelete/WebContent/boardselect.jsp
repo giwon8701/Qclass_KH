@@ -1,8 +1,8 @@
 <%@page import="com.muldel.biz.MDBoardBizImpl"%>
 <%@page import="com.muldel.biz.MDBoardBiz"%>
 <%@page import="com.muldel.dto.MDBoardDto"%>
-<%@page import="com.mdboard.dao.MDBoardDao"%>
-<%@page import="com.mdboard.dao.MDBoardDaoImpl"%>
+<%@page import="com.muldel.dao.MDBoardDao"%>
+<%@page import="com.muldel.dao.MDBoardDaoImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("UTF-8");%>

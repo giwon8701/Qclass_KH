@@ -1,4 +1,4 @@
-package com.mdboard.jdbc;
+package com.mvc.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,35 +13,29 @@ public class JDBCTemplate {
 		Connection con = null;
 		
 		try {
-			// 1. driver 연결
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("1. Driver 연결");
-			
-			// 2. 계정 연결
+			System.out.println("1. driver 연결");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			String id = "kh";
 			String pw = "kh";
+			
 			try {
 				con = DriverManager.getConnection(url, id, pw);
 				System.out.println("2. 계정 연결");
 				con.setAutoCommit(false);
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return con;
-	}
-	
-	public static void close(Connection con) {
-		try {
-			con.close();
-		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return con;
 	}
+	
 	public static void close(ResultSet rs) {
 		try {
 			rs.close();
@@ -61,6 +55,14 @@ public class JDBCTemplate {
 	public static void close(Statement stmt) {
 		try {
 			stmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void close(Connection con) {
+		try {
+			con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

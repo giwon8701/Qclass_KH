@@ -1,24 +1,21 @@
-package com.mdboard.dto;
+package com.mvc.dto;
 
 import java.sql.Date;
 
-public class MDBoardDto {
+public class MVCBoardDto {
 	
-	private int seq;
-	private String writer;
-	private String title;
-	private String content;
-	private Date date;
+	int seq;
+	String writer;
+	String title;
+	String content;
+	Date regdate;
 	
-	public MDBoardDto() {}
-	public MDBoardDto(int seq, String writer, String title, String content, Date date) {
-		this.seq = seq;
+	public MVCBoardDto() {};
+	public MVCBoardDto(String writer, String title, String content) {
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
-		this.date = date;
 	}
-	
 	public int getSeq() {
 		return seq;
 	}
@@ -43,10 +40,13 @@ public class MDBoardDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getDate() {
-		return date;
+	public Date getRegdate() {
+		return regdate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
 	}
+	
+	
+
 }
