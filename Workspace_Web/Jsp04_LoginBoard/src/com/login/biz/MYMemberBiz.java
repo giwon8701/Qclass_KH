@@ -23,7 +23,15 @@ public class MYMemberBiz {
 		return 0;
 	}
 	public MYMemberDto login(String myid, String mypw) {
+		return dao.login(myid, mypw);
+	}
+	public MYMemberDto idcheck(String myid) {
 		return null;
 	}
-	public MYMemberDto idcheck()
+	public int insertUser(MYMemberDto dto) {
+		return 0;
+	}
+	public MYMemberDto selectUser(int myno) {
+		return null;
+	}
 }

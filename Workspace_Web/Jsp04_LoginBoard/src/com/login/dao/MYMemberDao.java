@@ -1,5 +1,11 @@
 package com.login.dao;
 
+import static com.login.db.JDBCTemplate.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.login.dto.MYMemberDto;
@@ -12,11 +18,11 @@ public class MYMemberDao {
 	 * 2. 회원 전체 정보 확인 (MYENABLE='Y'인 -> 탈퇴안한 회원들의 정보)
 	 * 3. 회원 등급 조정 (ADMIN <-> USER)
 	 */
-	// 1. 전체정보
+	// 1. 전체정보(탈퇴회원 포함)
 	public List<MYMemberDto> selectAllUser() {
 		return null;
 	}
-	// 2. 전체정보(탈퇴안한)
+	// 2. 전체정보(탈퇴안한 회원만)
 	public List<MYMemberDto> selectEnabledUser() {
 		return null;
 	}
@@ -37,7 +43,45 @@ public class MYMemberDao {
 	
 	// 1. 로그인
 	public MYMemberDto login(String myid, String mypw) {
-		return null;
+		Connection con = getConnection();
+		String sql = " SELECT MYNO, MYID, MYPW, MYNAME, MYADDR, MYPHONE, MYEMAIL, MYENABLED, MYROLE "
+				   + " FROM MYMEMBER "
+				   + " WHERE MYID = ? "
+				   + " AND MYPW = ? ";
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
+		// side effect // id or pw가 틀리면 sql쿼리를 가져올 수 없어서 null 상태로 남게되고, 마지막에 dto는 null상태로 리턴된다.
+		MYMemberDto dto = null;
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, myid);
+			pstm.setString(2, mypw);
+			System.out.println("3. query 준비 : " + sql);
+			
+			rs = pstm.executeQuery();
+			System.out.println("4. query 실행 및 리턴");
+			while(rs.next()) {
+				dto = new MYMemberDto();
+				dto.setMyno(rs.getInt("MYNO"));
+				dto.setMyid(rs.getString(2));
+				dto.setMypw(rs.getString(3));
+				dto.setMyname(rs.getString(4));
+				dto.setMyaddr(rs.getString(5));
+				dto.setMyphone(rs.getString(6));
+				dto.setMyemail(rs.getString(7));
+				dto.setMyenabled(rs.getString(8));
+				dto.setMyrole(rs.getString(9));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs, pstm, con);
+			System.out.println("5. db 종료");
+		}
+		
+		return dto;
 	}
 	// 2. 중복체크
 	public MYMemberDto idCheck(String myid) {
