@@ -32,10 +32,6 @@
 					<input type="button" value="취소" onclick="">
 				</td>
 			</tr>
-			<tr>
-				<th></th>
-				<td></td>
-			</tr>
 		</table>
 	</form>
 </body>

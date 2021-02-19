@@ -10,5 +10,5 @@ public interface MVCBoardBiz {
 	public MVCBoardDto selectOne(int seq);
 	public int insert(MVCBoardDto dto);
 	public int update(MVCBoardDto dto);
-	public int insert(int seq);
+	public int delete(int seq);
 }

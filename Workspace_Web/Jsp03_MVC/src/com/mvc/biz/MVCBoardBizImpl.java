@@ -12,32 +12,27 @@ public class MVCBoardBizImpl implements MVCBoardBiz {
 
 	@Override
 	public List<MVCBoardDto> selectList() {
-		// TODO Auto-generated method stub
 		return dao.selectList();
 	}
 
 	@Override
 	public MVCBoardDto selectOne(int seq) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.selectOne(seq);
 	}
 
 	@Override
 	public int insert(MVCBoardDto dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.insert(dto);
 	}
 
 	@Override
 	public int update(MVCBoardDto dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.update(dto);
 	}
 
 	@Override
-	public int insert(int seq) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int delete(int seq) {
+		return dao.delete(seq);
 	}
 
 }

@@ -30,7 +30,7 @@
 		<tr>
 			<td><%=dto.getSeq() %></td>
 			<td><%=dto.getWriter() %></td>
-			<td><a href=""><%=dto.getTitle() %></a></td>
+			<td><a href="./myselect.jsp?command=selectone&seq=<%=dto.getSeq()%>"><%=dto.getTitle() %></a></td>
 			<td><%=dto.getRegdate() %></td>
 		</tr>
 <%
