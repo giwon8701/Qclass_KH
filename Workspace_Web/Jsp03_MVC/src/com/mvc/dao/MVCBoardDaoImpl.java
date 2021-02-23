@@ -111,7 +111,6 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 				commit(con);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(pstm);
@@ -129,7 +128,6 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 		int res = 0;
 		
 		con = getConnection();
-		
 		
 		try {
 			pstm = con.prepareStatement(UPDATE_SQL);
@@ -185,6 +183,56 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 		}
 		
 		return res;
+	}
+
+	@Override
+	public int countPage() {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String sql = COUNT_PAGE_SQL;
+		int cnt = 0;
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			while(rs.next()) {
+				cnt = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
+			close(con);
+		}
+		
+		return cnt;
+	}
+
+	@Override
+	public int countRownum() {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String sql = COUNT_ROWNUM_SQL;
+		int cnt = 0;
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			while(rs.next()) {
+				cnt = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
+			close(con);
+		}
+		
+		return cnt;
 	}
 
 }

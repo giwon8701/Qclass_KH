@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Jsp05_HelloServlet</display-name>
+  <welcome-file-list>
+    <welcome-file>home.html</welcome-file>
+  </welcome-file-list>
+<!-- context-param : context 전체 -->
+  <context-param>
+		<param-name>name</param-name>
+		<param-value>수지</param-value>
+  </context-param>
+
+  <!-- HelloServlet Hello = new HelloServlet(); -->
+  <!-- hello.do -->
+  <servlet>
+		<servlet-name>Hello</servlet-name>
+		<servlet-class>com.hello.servlet.HelloServlet</servlet-class>
+		<!-- servlet태그 내부의 init-param : home.html에서 hellodo로 호출하는 HelloServlet안에서만 사용하는 변수 - 해당 servlet 실행 ~ 소멸 전 까지 -->
+		<init-param>
+			<param-name>sports</param-name>
+			<param-value>무에타이</param-value>
+		</init-param>
+  </servlet>
+
+  <servlet-mapping>
+	<servlet-name>Hello</servlet-name>
+	<url-pattern>/hello.do</url-pattern>
+  </servlet-mapping>
+
+</web-app>

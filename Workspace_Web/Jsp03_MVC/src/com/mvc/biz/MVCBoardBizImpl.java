@@ -35,4 +35,9 @@ public class MVCBoardBizImpl implements MVCBoardBiz {
 		return dao.delete(seq);
 	}
 
+	@Override
+	public int countPage() {
+		return dao.countPage();
+	}
+
 }

@@ -14,24 +14,27 @@ public class MYMemberBiz {
 	}
 	
 	public List<MYMemberDto> selectAlluser() {
-		return null;
+		return dao.selectAllUser();
 	}
 	public List<MYMemberDto> selectEnabledUser() {
-		return null;
+		return dao.selectEnabledUser();
 	}
 	public int updateRole(int myno, String myrole) {
-		return 0;
+		return dao.updateRole(myno, myrole);
 	}
 	public MYMemberDto login(String myid, String mypw) {
 		return dao.login(myid, mypw);
 	}
-	public MYMemberDto idcheck(String myid) {
-		return null;
+	public MYMemberDto idCheck(String myid) {
+		return dao.idCheck(myid);
 	}
 	public int insertUser(MYMemberDto dto) {
-		return 0;
+		return dao.insertUser(dto);
+	}
+	public int deleteUser(int myno) {
+		return dao.deleteUser(myno);
 	}
 	public MYMemberDto selectUser(int myno) {
-		return null;
+		return dao.selectUser(myno);
 	}
 }

@@ -23,17 +23,20 @@
 	// 요청한 명령을 받는다.
 	if (command.equals("list")) {					// selectList  !!!!!!!!!!!!!!
 		// 1. 보내준 값이 있으면, 받는다.
+		int clickPage = Integer.parseInt(request.getParameter("clickpage"));	// 클릭한 페이지
 		
 		// 2. db에 전달할 값이 있으면 전달하고,
 		//	  없으면 없는대로 호출해서 리턴받는다.
 		List<MVCBoardDto> list = biz.selectList();
+		int cntpage = biz.countPage();
 		
 		// 3. 화면에 전달할 값이 있으면, request 객체에 담아준다.
 		request.setAttribute("list", list);
+		request.setAttribute("cntpage", cntpage);
 		
 		// 4. 보낸다.
 		// pageContext.forward() : 페이지 위임 (request, response 객체가 그대로 전달)
-		pageContext.forward("mylist.jsp");
+		pageContext.forward("mylist.jsp?clickpage="+clickPage);
 	} else if (command.equals("selectone")) {
 		// 1.
 		int seq = Integer.parseInt(request.getParameter("seq"));
