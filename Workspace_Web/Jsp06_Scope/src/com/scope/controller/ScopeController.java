@@ -20,6 +20,7 @@ public class ScopeController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 
+		System.out.println(request);
 		String requestId = request.getAttribute("requestId") + "";
 		request.setAttribute("requestId", requestId);
 		
@@ -35,14 +36,16 @@ public class ScopeController extends HttpServlet {
 		
 		String myRequest = request.getParameter("myRequest");
 		System.out.println("myRequest : " + myRequest);
+		request.setAttribute("myRequest", myRequest);
+		
 		
 		PrintWriter out = response.getWriter();
 		String html = "<h1>¿¿¥‰</h1>"
 					+ "<table border='1'>"
 						+ "<tr>"
 							+ "<th>request</th>"
-								+ "<td>" + requestId + "</td>"
-//								+ "<td>" + myRequest + "</td>"
+//								+ "<td>" + requestId + "</td>"
+								+ "<td>" + myRequest + "</td>"
 						+ "</tr>"
 						+ "<tr>"
 							+ "<th>session</th>"
