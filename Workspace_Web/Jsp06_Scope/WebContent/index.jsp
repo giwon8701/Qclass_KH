@@ -28,6 +28,8 @@
 		<input type="hidden" name="myRequest" value="my request value 2">
 		<input type="submit" value="controller">
 	</form>
+	
+<!-- 	<% pageContext.forward("scope.do"); %> -->
 
 	
 
