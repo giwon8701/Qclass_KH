@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	request.setCharacterEncoding("UTF-8");
-	response.setContentType("text/html; charset=UTF-8");
-%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<% response.setContentType("text/html; charset=UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +10,9 @@
 </head>
 <body>
 
-	<h1>Insert</h1>
+	<h1>INSERT</h1>
 	
-	<form action="myservlet.do" method="post">
+	<form action="mvc.do" method="post">
 		<input type="hidden" name="command" value="insertres">
 		<table border="1">
 			<tr>
@@ -31,12 +29,11 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<input type="submit" value="글작성">
-					<input type="button" value="취소" onclick="location.href='mycontroller.jsp?command=list'">
+					<input type="submit" value="작성">
+					<input type="button" value="취소" onclick="">
 				</td>
 			</tr>
 		</table>
 	</form>
-
 </body>
 </html>

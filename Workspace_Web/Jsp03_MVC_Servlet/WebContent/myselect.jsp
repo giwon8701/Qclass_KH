@@ -17,7 +17,7 @@
 
 	function deleteProc(seq){
 		if(confirm(seq+"번 글 삭제하시겠습니까?")){
-			location.href="mycontroller.jsp?command=delete&seq="+seq;
+			location.href="myservlet.do?command=delete&seq="+seq;
 		}
 	}
 
@@ -25,7 +25,7 @@
 
 </head>
 <%
-	MVCBoardDto dto = (MVCBoardDto) request.getAttribute("seq");
+	MVCBoardDto dto = (MVCBoardDto) request.getAttribute("dto");
 %>
 <body>
 

@@ -18,7 +18,7 @@
 
 	<h1>Update</h1>
 	
-	<form action="mycontroller.jsp" method="post"> <!-- 값을 여러개 보낼 때 form태그 이용 -->
+	<form action="myservlet.do" method="post"> <!-- 값을 여러개 보낼 때 form태그 이용 -->
 		<input type="hidden" name="command" value="updateres">
 		<input type="hidden" name="seq" value="<%=dto.getSeq()%>">
 		<table border="1">
@@ -28,7 +28,7 @@
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="title" vlaue="<%=dto.getTitle()%>"></td>
+				<td><input type="text" name="title" value="<%=dto.getTitle()%>"></td>
 			</tr>
 			<tr>
 				<th>내용</th>
@@ -37,7 +37,7 @@
 			<tr>
 				<td colspan="2" align="right">
 					<input type="submit" value="수정">
-					<input type="button" value="취소" onclick="location.href='mycontroller.jsp?command=selectform&seq=<%=dto.getSeq()%>'">
+					<input type="button" value="취소" onclick="location.href='myservlet.do?command=selectone&seq=<%=dto.getSeq()%>'">
 				</td>
 			</tr>
 		</table>

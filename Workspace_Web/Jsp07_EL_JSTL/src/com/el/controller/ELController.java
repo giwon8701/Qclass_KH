@@ -52,6 +52,8 @@ public class ELController extends HttpServlet {
 			request.setAttribute("list", list);
 			RequestDispatcher dispatch = request.getRequestDispatcher("jstltest.jsp");
 			dispatch.forward(request, response);
+		} else if (command.equals("usebean")) {
+			response.sendRedirect("usebean.jsp");
 		}
 	}
 

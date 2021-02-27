@@ -52,7 +52,7 @@
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		// 2.
-		MVCBoardDto dto = new MVCBoardDto(0, writer, title, content, null);
+		MVCBoardDto dto = new MVCBoardDto(writer, title, content);
 
 		int res = biz.insert(dto);
 		// 3.
