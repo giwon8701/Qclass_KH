@@ -101,7 +101,6 @@ public class MVCBoardController extends HttpServlet {
 			
 		} else if (command.equals("multidelete")) {
 			// 1.
-			String[] 
 		}
 	}
 
