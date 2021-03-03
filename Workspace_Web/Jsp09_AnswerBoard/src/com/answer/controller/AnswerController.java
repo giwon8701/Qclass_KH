@@ -36,6 +36,48 @@ public class AnswerController extends HttpServlet {
 			// 4. 보내기
 			dispatch(request, response, "boardlist.jsp");
 			
+		} else if (command.equals("detail")) {
+			// 1.
+			int boardno = Integer.parseInt(request.getParameter("boardno"));
+			// 2.
+			AnswerDto dto = biz.selectOne(boardno);
+			// 3.
+			request.setAttribute("dto", dto);
+			// 4.
+			dispatch(request, response, "boardselect.jsp");
+			
+		} else if (command.equals("answerform")) {
+			// 1.
+			int boardno = Integer.parseInt(request.getParameter("boardno"));
+			// 2.
+			AnswerDto dto = biz.selectOne(boardno);
+			// 3.
+			request.setAttribute("dto", dto);
+			// 4.
+			dispatch(request, response, "answerform.jsp");
+			
+		} else if (command.equals("answerwrite")) {
+			// 1.
+			int parentBoardNo = Integer.parseInt(request.getParameter("parentBoardNo"));
+			String title = request.getParameter("title");
+			String writer = request.getParameter("writer");
+			String content = request.getParameter("content");
+			// 2.
+			AnswerDto dto = new AnswerDto();
+			dto.setBoardno(parentBoardNo);
+			dto.setTitle(title);
+			dto.setWriter(writer);
+			dto.setContent(content);
+			
+			int res = biz.answerProc(dto);
+			// 3.
+			// 4.
+			if (res > 0) {
+				jsResponse(response, "answer.do?command=list", "답변 성공");
+			} else {
+				jsResponse(response, "answer.do?command=answeroform&boardno="+parentBoardNo, "답변 실패!");
+			}
+			
 		} else if (command.equals("insertform")) {
 			response.sendRedirect("boardinsert.jsp");
 			
@@ -67,7 +109,7 @@ public class AnswerController extends HttpServlet {
 		RequestDispatcher dispatch = request.getRequestDispatcher(path);
 		dispatch.forward(request, response);
 	}
-	private void jsResponse(HttpServletRequest request, HttpServletResponse response, String url, String msg) throws IOException {
+	private void jsResponse(HttpServletResponse response, String url, String msg) throws IOException {
 		String s = "<script type='text/javascript'>"
 				 + "alert('"+msg+"');"
 				 + "location.href='"+url+"';"

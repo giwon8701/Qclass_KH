@@ -40,7 +40,7 @@
 							<c:forEach begin="1" end="${dto.titletab }">
 								&nbsp;
 							</c:forEach>
-							<a href="answerselect.jsp?command=select&seq=${dto.boardno }">${dto.title }</a>
+							<a href="answer.do?command=detail&boardno=${dto.boardno }">${dto.title }</a>
 						</td>
 						<td>${dto.writer }</td>
 						<td>${dto.regdate }</td>
