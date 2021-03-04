@@ -45,7 +45,7 @@
 	 								<c:forEach begin="1" end="${dto.titletab }">
 	 									&nbsp;
 	 								</c:forEach>
-	 								<a href="">${dto.title }</a>
+	 								<a href="answer.do?command=select&boardno=${dto.boardno }">${dto.title }</a>
 	 							</c:otherwise>
 	 						</c:choose>
 	 					</td>
