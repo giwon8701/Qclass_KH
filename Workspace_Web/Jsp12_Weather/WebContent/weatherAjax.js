@@ -8,8 +8,11 @@ $(function() {
 					url : url + "?code=" + code,
 					dataType : "text",
 					success : function(data) {
+						console.log(data);
+						// 공백제거
 						var temp = $.trim(data);
 						var obj = JSON.parse(temp);
+						console.log(obj);
 						
 						$("#pubDate").val(obj.pubDate);
 						$("#temp").val(obj.temp);
@@ -33,6 +36,14 @@ $(function() {
 						}else{
 							$("#weather_img").attr("src","/Jsp12_Weather/image/etc.png");
 						}
+						
+						$("#pubDate1").val(obj.pubDate);
+						$("#temp1").val(obj.temp);
+						$("#x1").val(obj.x);
+						$("#y1").val(obj.y);
+						$("#reh1").val(obj.reh);
+						$("#pop1").val(obj.pop);
+						$("#wfKor1").val(obj.wfKor);
 					},
 					error : function() {
 						alert("정보를 불러오는데 실패하였습니다.");
