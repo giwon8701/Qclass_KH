@@ -10,18 +10,13 @@
 	<%-- 위에서 가져온 데이터를 파싱해줌 --%>
 	<x:parse var="wrss" xml="${weather}" />
 { 
+"pubDate":"<x:out select="$wrss/rss/channel/pubDate" />",
 "temp":"<x:out select="$wrss/rss/channel/item/description/body/data/temp" />",
 "reh":"<x:out select="$wrss/rss/channel/item/description/body/data/reh" />",
 "pop":"<x:out select="$wrss/rss/channel/item/description/body/data/pop" />",
 "x":"<x:out select="$wrss/rss/channel/item/description/header/x" />",
 "y":"<x:out select="$wrss/rss/channel/item/description/header/y" />",
-<%--
-"wfKor":"<x:out select="$wrss/rss/channel/item/description/body/data/wfKor" />",
- --%>
-<x:forEach select="$wrss/rss/channel/item/description/body/data/wfKor" var="wfKor">
-"wfKor":"<x:out select="$wfKor" />",
-</x:forEach>
-"pubDate":"<x:out select="$wrss/rss/channel/pubDate" />"
+"wfKor":"<x:out select="$wrss/rss/channel/item/description/body/data/wfKor" />"
 }
 </c:catch>
 <c:if test="${err!=null}">

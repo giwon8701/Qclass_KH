@@ -8,11 +8,11 @@ $(function() {
 					url : url + "?code=" + code,
 					dataType : "text",
 					success : function(data) {
-						console.log(data);
+						console.log("data: " + data);
 						// 공백제거
 						var temp = $.trim(data);
+						console.log("temp : " + temp);
 						var obj = JSON.parse(temp);
-						console.log(obj);
 						
 						$("#pubDate").val(obj.pubDate);
 						$("#temp").val(obj.temp);

@@ -39,37 +39,43 @@ public class BikeController extends HttpServlet {
 			BikeDao dao = new BikeDao();
 			
 			if (dao.delete()) {
-				System.out.println("db ì´ˆê¸°í™” ì„±ê³µ");
+				System.out.println("db ÃÊ±âÈ­ ¼º°ø");
 			} else {
-				System.out.println("db ì´ˆê¸°í™” ì‹¤íŒ¨");
+				System.out.println("db ÃÊ±âÈ­ ½ÇÆĞ");
 			}
 			
-			String data = request.getParameter("mydata");
-			// JsonElementëŠ” JsonObject, JsonPrimitive, JsonArray, JsonNull ì´ 4ê°€ì§€ì˜ ë¶€ëª¨ í´ë˜ìŠ¤ë¡œ ì¶”ìƒí´ë˜ìŠ¤ë¡œ ì •ì˜ëœë‹¤.
-			JsonElement element = JsonParser.parseString(data);	// mydataë¥¼  ë„£ì–´ë‘ 
-			JsonObject jsonData = element.getAsJsonObject();	// JsonObjectë¡œ ë³€í™˜í•¨(ê²°ê³¼ë¬¼ : jsonData)
+			String data = request.getParameter("mydata");		// jsonÇüÅÂÀÇ ¹®ÀÚ¿­À» json °´Ã¼·Î º¯È¯ (string -> json object)
+			// JsonElement : JsonObject, JsonArray, JsonPrimitive, JsonNull °ªµéÀ» ¸ğµÎ Æ÷ÇÔ
+			JsonElement element = JsonParser.parseString(data);	// jsonÇüÅÂÀÇ ¹®ÀÚ¿­À» json °´Ã¼·Î º¯È¯ (string -> json object)
+			// JsonObject : key-value pair ({String : JsonElement} Çü½Ä)
+			JsonObject jsonData = element.getAsJsonObject();	// JsonElement´Â JsonObject, JsonPrimitive, JsonArray, JsonNull ÀÌ 4°¡ÁöÀÇ ºÎ¸ğ Å¬·¡½º·Î Ãß»óÅ¬·¡½º·Î Á¤ÀÇµÈ´Ù
 			
-			JsonElement records = jsonData.get("records");	// jsonDataì—ì„œ recordsì¸ í‚¤ê°’ì˜ valueë¥¼ ê°€ì ¸ì˜´
-			JsonArray recordsArray = records.getAsJsonArray();	// valueê°’ë“¤ì€ arrayí˜•ì‹ìœ¼ë¡œ ê°€ì ¸ì˜´
+			// records¿¡ ÇØ´çÇÏ´Â °ªµéÀ» ÀúÀå
+			JsonElement records = jsonData.get("records");	// bike.json¿¡¼­ °¡Á®¿Â´Ù
+			JsonArray recordsArray = records.getAsJsonArray();	
 			
 			List<BikeDto> list = new ArrayList<BikeDto>();
 			JsonArray resultArray = new JsonArray();
 			
 			for (int i=0; i<recordsArray.size(); i++) {
-				// recordsArraydp ë‹´ì•„ë†“ì€ valueê°’(k:vë¡œ ì´ë£¨ì–´ì§„ value)ì¤‘ "ìì „ê±°ëŒ€ì—¬ì†Œëª…"ì´ë¼ëŠ”
-				// keyì˜ valueê°’ì„ stringìœ¼ë¡œ ê°€ì ¸ì˜´
-				String name = recordsArray.get(i).getAsJsonObject().get("ìì „ê±°ëŒ€ì—¬ì†Œëª…").getAsString();
+				/*
+				 JsonElement tempElement = resordsArray.get(i);
+				 JsonObject tempObject = tempElement.getAsJsonObject();
+				 JsonElement nameElement = tempObject.get("ÀÚÀü°Å´ë¿©¼Ò¸í");
+				 String name = nameElement.getAsString();
+				 */
+				String name = recordsArray.get(i).getAsJsonObject().get("ÀÚÀü°Å´ë¿©¼Ò¸í").getAsString();
 				String addr = null;
-				if (recordsArray.get(i).getAsJsonObject().get("ì†Œì¬ì§€ë„ë¡œëª…ì£¼ì†Œ") != null) {
-					addr = recordsArray.get(i).getAsJsonObject().get("ì†Œì¬ì§€ë„ë¡œëª…ì£¼ì†Œ").getAsString();
+				if (recordsArray.get(i).getAsJsonObject().get("¼ÒÀçÁöµµ·Î¸íÁÖ¼Ò") != null) {
+					addr = recordsArray.get(i).getAsJsonObject().get("¼ÒÀçÁöµµ·Î¸íÁÖ¼Ò").getAsString();
 				} else {
-					addr = recordsArray.get(i).getAsJsonObject().get("ì†Œì¬ì§€ì§€ë²ˆì£¼ì†Œ").getAsString();
+					addr = recordsArray.get(i).getAsJsonObject().get("¼ÒÀçÁöÁö¹øÁÖ¼Ò").getAsString();
 				}
 				
-				double latitude = recordsArray.get(i).getAsJsonObject().get("ìœ„ë„").getAsDouble();
-				double longitude = recordsArray.get(i).getAsJsonObject().get("ê²½ë„").getAsDouble();
+				double latitude = recordsArray.get(i).getAsJsonObject().get("À§µµ").getAsDouble();
+				double longitude = recordsArray.get(i).getAsJsonObject().get("°æµµ").getAsDouble();
 				
-				int bike_count = recordsArray.get(i).getAsJsonObject().get("ìì „ê±°ë³´ìœ ëŒ€ìˆ˜").getAsInt();
+				int bike_count = recordsArray.get(i).getAsJsonObject().get("ÀÚÀü°Åº¸À¯´ë¼ö").getAsInt();
 				BikeDto dto = new BikeDto(name, addr, latitude, longitude, bike_count);
 				list.add(dto);
 				
@@ -79,15 +85,15 @@ public class BikeController extends HttpServlet {
 			}
 			System.out.println(resultArray);
 			if (dao.insert(list)) {
-				System.out.println("db ì €ì¥ ì„±ê³µ");
+				System.out.println("db ÀúÀå ¼º°ø");
 			} else {
-				System.out.println("db ì €ì¥ ì‹¤íŒ¨");
+				System.out.println("db ÀúÀå ½ÇÆĞ");
 			}
 			
-			JsonObject result = new JsonObject();
-			result.add("result", resultArray);
+			JsonObject result = new JsonObject();		// Á¦ÀÌ½¼ °´Ã¼ ¸¸µé¾î¼­
+			result.add("result", resultArray);			// String °ªÀ» result¿¡ ³Ö¾îÁÜ
 			
-			response.getWriter().append(result+"");
+			response.getWriter().append(result+"");		// html·Î º¸³¿
 		}
 		
 	}
