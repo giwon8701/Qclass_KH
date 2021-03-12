@@ -37,7 +37,6 @@
 %>
 <body>
 
-	<%@ include file="./form/header.jsp"%>
 
 	<h1>list</h1>
 	
@@ -89,6 +88,5 @@
 		</table>
 	</form>
 	
-	<%@ include file="./form/footer.jsp" %>
 </body>
 </html>

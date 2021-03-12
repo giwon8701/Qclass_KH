@@ -40,7 +40,58 @@
 		margin: 1px;
 		background-color: skyblue;
 	}
+	
+	.preview {
+		position: absolute;
+		top: -30px;
+		left: 10px;
+		background-color: skyblue;
+		width: 40px;
+		height: 40px;
+		text-align: center;
+		line-height: 40px;
+		border-radius: 40px 40px 40px 1px;
+	}
 </style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	
+	function isTwo(n) {
+		return (n.length<2)? "0"+n : n;
+	}
+
+	$(function() {
+		$(".countView").hover(function() {
+			// handle in
+			var countView = $(this);
+			var year = $(".y").text().trim();
+			var month = $(".m").text().trim();
+			var date = countView.text().trim();
+			var yyyyMMdd = year + isTwo(month) + isTwo(date);
+			
+			$.ajax({
+				type: "post",
+				url: "count.do?id=kh&yyyyMMdd="+yyyyMMdd,
+				dataType: "json",
+				async: false,
+				success: function(msg) {
+					var count = msg.calcount;
+					countView.after("<div class='preview'>" + count + "</div>");
+				},
+				error: function() {
+					alert("통신 실패");
+				}
+			});
+		},
+		function() {
+			// handle out
+			$(".preview").remove();
+			
+			
+		});
+	});
+</script>
+
 </head>
 <body>
 <%
@@ -105,7 +156,7 @@
 		for (int i=1; i<=lastDay; i++) {
 %>
 			<td>
-				<a href="cal.do?command=list&year=<%=year %>&month=<%=month %>&date=<%=i %>" style="color: <%=Util.fontColor(i, dayOfWeek)%>"><%=i %></a>	<%--  Util.fontColor가 static method이므로 사용가능 --%>
+				<a class="countView" href="cal.do?command=list&year=<%=year %>&month=<%=month %>&date=<%=i %>" style="color: <%=Util.fontColor(i, dayOfWeek)%>"><%=i %></a>	<%--  Util.fontColor가 static method이므로 사용가능 --%>
 				<a href="insert.jsp?year=<%=year%>&month=<%=month%>&date=<%=i%>&lastDay=<%=lastDay%>">
 					<img alt="" src="image/pen.png" style="width:10px; height: 10px;">
 				</a>

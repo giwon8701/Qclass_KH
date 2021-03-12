@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v9.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v9.0 Server at localhost" name="Tomcat v9.0 Server at localhost" runtime-id="Apache Tomcat v9.0" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="27">
-  <list key="modules" value0="Jsp10_Ajax02::org.eclipse.jst.jee.server:Jsp10_Ajax02::jst.web::3.0" value1="Jsp11_KoreaBikeStand::org.eclipse.jst.jee.server:Jsp11_KoreaBikeStand::jst.web::3.0" value2="Jsp12_Weather::org.eclipse.jst.jee.server:Jsp12_Weather::jst.web::3.1" value3="Jsp13_CalBoard::org.eclipse.jst.jee.server:Jsp13_CalBoard::jst.web::3.0"/>
-</server>
