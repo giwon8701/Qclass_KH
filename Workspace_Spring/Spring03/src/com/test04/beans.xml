@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="lee" class="com.test04.Emp">
+		<property name="name" value="이순신"/>
+		<property name="salary" value="3000000"/>
+	</bean>
+	
+	<bean id="hong" class="com.test04.Emp">
+		<property name="name" value="홍길동"/>
+		<property name="salary" value="2500000"/>
+	</bean>
+	
+	<bean id="lee-ss" class="com.test04.Developer">
+		<constructor-arg name="emp" ref="lee" />
+		<constructor-arg name="dept" value="개발"/>
+	</bean>
+	
+	<bean id="hong-gd" class="com.test04.Engineer">
+		<constructor-arg index="0" ref="hong" />
+		<constructor-arg index="1" value="기술"/>
+	</bean>
+
+</beans>
