@@ -12,13 +12,16 @@ import java.util.List;
 import com.mvc.dto.MVCBoardDto;
 
 public class MVCBoardDaoImpl implements MVCBoardDao {
-
+	
 	@Override
 	public List<MVCBoardDto> selectList() {
 		Connection con = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		List<MVCBoardDto> list = new ArrayList<>();
+		
+		
+		Connection con = getConnection();
 		
 		try {
 			con = getConnection();

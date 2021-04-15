@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="today" class="java.util.Date"/>
+	
+	<bean id="end" class="java.util.Date">
+		<constructor-arg name="year" value="121"/>
+		<constructor-arg name="month" value="6"/>
+		<constructor-arg name="date" value="14"/>
+	</bean>
+	
+	<bean id="myclass" class="com.test01.MyClass" lazy-init="true"/>
+
+	<bean id="beanTest" class="com.test01.BeanTest">
+		<!-- 0. 기본 생성자 -->
+		
+		<!-- 1. param 1개짜리 생성자 -->
+		<constructor-arg ref="today"></constructor-arg>
+		<!-- 2. setMyClass 호출 -->
+		<property name="myclass" ref="myclass"></property>
+		<!-- 3. setDate(Date date) 호출 -->
+		<property name="date" ref="end"></property>
+		<!-- 4. setNumber(int num) 호출 -->
+		<property name="number">
+			<value type="short">28</value>
+		</property>
+		<!-- 5. setArray(String[] arr) 호출 -->
+		<property name="array">
+			<array>
+				<value>박찬종</value>
+				<value>단발좌</value>
+				<value>김진현</value>
+			</array>
+		</property>
+		<!-- 5. setList(List<String> list) 호출 -->
+		<property name="list">
+			<list>
+				<value>봄</value>
+				<value>여름</value>
+				<value>가을</value>
+				<value>겨울</value>
+			</list>
+		</property>
+	</bean>
+	
+</beans>

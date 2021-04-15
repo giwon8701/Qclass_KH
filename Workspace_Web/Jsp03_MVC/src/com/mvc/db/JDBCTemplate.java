@@ -85,5 +85,28 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
+	
+	public boolean selectLogin(String myid, String mypw) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		int res = 0;
+		
+		try {
+			rs = pstm.executeQuery();
+			
+			while(rs.next()) {
+				res++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		if (res > 0) {
+			return true;
+		}
+		
+		return false;
+	}
 
 }
