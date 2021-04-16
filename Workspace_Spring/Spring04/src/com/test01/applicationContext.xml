@@ -43,6 +43,50 @@
 				<value>겨울</value>
 			</list>
 		</property>
+		<!-- 6. setSet(Set<String> list) 호출 -->
+		<property name="set">
+			<list>
+				<value>1</value>
+				<value>1</value>
+				<value>2</value>
+				<value>2</value>
+				<value>3</value>
+			</list>
+		</property>
+		<!--  7. setMap(Map<Integer, String> map) 호출 -->
+		<property name="map">
+			<map>
+				<entry>
+					<key><value>1</value></key>
+					<value>봄</value>
+				</entry>
+				<entry>
+					<key><value>2</value></key>
+					<value>여름</value>
+				</entry>
+				<entry key="3" value="가을"></entry>
+				<entry key="4" value="겨울"></entry>
+			</map>
+		</property>
+		<!-- setScore(List<Score> list) 호출 -->
+		<property name="score">
+			<list>
+				<bean class="com.test01.Score">
+					<property name="name" value="박찬종"/>
+					<property name="kor" value="100"/>
+					<property name="eng" value="100"/>
+					<property name="math" value="100"/>
+				</bean>
+				<ref bean="han"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="han" class="com.test01.Score">
+		<constructor-arg value="한효주"/>
+		<constructor-arg value="100"/>
+		<constructor-arg value="100"/>
+		<constructor-arg value="100"/>
 	</bean>
 	
 </beans>

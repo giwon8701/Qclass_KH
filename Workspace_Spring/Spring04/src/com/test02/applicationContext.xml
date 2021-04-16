@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="favorite" name="favoriteFood" class="com.test02.Food">
+		<property name="name" value="육회"/>
+		<property name="price" value="30000"/>
+	</bean>
+	
+	<bean id="unFavoriteFood" name="unFavorite" class="com.test02.Food">
+		<constructor-arg value="해물찜"/>
+		<constructor-arg value="40000"/>
+	</bean>
+	
+	<bean id="myFood" class="com.test02.MyFood" autowire="constructor"></bean>
+	<!--
+		**autowire**
+		byName = setter와 같은 이름의 bean (id/name)이 있으면 자동 할당
+		byType = setter의 parameterType과 같은 type의 bean이 있으면 자동 할당
+		constructor = 생성자와 같은 이름의 bean 이 있으면 자동 할당
+		default = 생성자에 할당할 수 있는지 확인 후 -> 없으면 setter에서 확인하여 할당
+				  (기본 생성자가 있으면 기본생성자 호출!)
+	 -->
+	
+</beans>
