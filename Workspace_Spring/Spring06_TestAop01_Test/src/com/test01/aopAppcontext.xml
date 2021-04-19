@@ -6,20 +6,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
-	
+
 	<aop:aspectj-autoproxy/>
-	<context:component-scan base-package="com.edu.aop"></context:component-scan>
 	
-	<bean id="rect" class="com.edu.entity.Rectangle">
-		<constructor-arg name="title" value="사각형"/>
-		<constructor-arg name="data1" value="3"/>
-		<constructor-arg name="data2" value="5"/>
-	</bean>
-	<bean id="tri" class="com.edu.entity.Triangle">
-		<constructor-arg name="title" value="삼각형"/>
-		<constructor-arg name="data1" value="3"/>
-		<constructor-arg name="data2" value="5"/>
-	</bean>
-	
+	<bean id="person01" class="com.test01.Person"/>
+	<bean id="person02" class="com.test01.Person"/>
+	<bean id="myAdvice" class="com.test01.MyAdvice"/>
 
 </beans>

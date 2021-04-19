@@ -8,6 +8,18 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	
 	<aop:aspectj-autoproxy/>
-	<context:component-scan base-package="com.edu"/>
+	<context:component-scan base-package="com.edu.aop"></context:component-scan>
+	
+	<bean id="rect" class="com.edu.entity.Rectangle">
+		<constructor-arg name="title" value="사각형"/>
+		<constructor-arg name="data1" value="3"/>
+		<constructor-arg name="data2" value="5"/>
+	</bean>
+	<bean id="tri" class="com.edu.entity.Triangle">
+		<constructor-arg name="title" value="삼각형"/>
+		<constructor-arg name="data1" value="3"/>
+		<constructor-arg name="data2" value="5"/>
+	</bean>
+	
 
 </beans>

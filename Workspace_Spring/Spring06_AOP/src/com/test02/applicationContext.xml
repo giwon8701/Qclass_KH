@@ -6,7 +6,7 @@
 	<bean id="man" class="com.test02.Man"/>
 	<bean id="woman" class="com.test02.Woman"/>
 	
-	<!-- ccc : 공통 관심사함 -->
+	<!-- ccc : 공통 관심사항 -->
 	<bean id="myAdvice" class="com.test02.MyAspect"/>
 	
 	<!-- proxy -->
