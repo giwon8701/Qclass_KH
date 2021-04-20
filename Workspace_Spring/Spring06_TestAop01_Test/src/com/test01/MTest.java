@@ -16,8 +16,8 @@ public class MTest {
 		System.out.println("------");
 		
 		Human person02 = factory.getBean("person02",Human.class);
-		person01.sayName("둘리");
-		person01.sayJob("개그맨");
+		person02.sayName("둘리");
+		person02.sayJob("개그맨");
 
 	}
 }

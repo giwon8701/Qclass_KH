@@ -1,8 +1,5 @@
 package com.edu.entity;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public abstract class Shape {
 
 	public String title;

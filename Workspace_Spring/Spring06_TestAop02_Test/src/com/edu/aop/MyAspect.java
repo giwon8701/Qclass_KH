@@ -10,17 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyAspect {
 	
-	@Pointcut("execution(public * * (..))")
-	public void myClass() {
-		
-	}
-
-	@Before("myClass()")
+	@Before("execution(* viewSize(..))")
 	public void before() {
 		System.out.println("도형의 넓이를 구한다.");
 	}
 	
-	@After("myClass()")
+	@After("execution(* viewSize(..))")
 	public void after() {
 		System.out.println("도형의 넓이를 출력한다.");
 	}

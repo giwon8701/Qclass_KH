@@ -19,12 +19,11 @@ public class MyAdvice {
 	@After("execution(public * sayName(..))")
 	public void afterSaying(JoinPoint join) {
 		System.out.println("이름이 멋지시네요.");
-		System.out.println("직업이 무엇입니까?");
 	}
 
-	@AfterReturning(pointcut = "execution(public * sayJob(..))", returning = "returnVal")
+	@AfterReturning(pointcut = "execution(public * sayName(..))", returning = "returnVal")
 	public void afterReturnSaying(JoinPoint join, Object returnVal) {
-		System.out.println("나의 직업은 " + returnVal + " 입니다.");
+		System.out.println("직업이 무엇입니까?");
 	}
 
 }
