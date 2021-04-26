@@ -70,7 +70,7 @@ public class MYBoardController {
 			return "redirect:detail.do?myno="+dto.getMyno();
 		}
 		
-		return "redirect:updateform.do?myno="+dto.getMyno();
+		return "redirect:updateform.do";
 	}
 	
 	
