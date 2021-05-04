@@ -18,6 +18,7 @@ public class MYMemberDaoImpl implements MYMemberDao {
 		MYMemberDto res = null;
 		
 		try {
+			SqlSessionTemplate session = new SqlSessionTemplate(null);
 			res = sqlSession.selectOne(NAMESPACE + "login", dto);
 		} catch (Exception e) {
 			e.printStackTrace();
