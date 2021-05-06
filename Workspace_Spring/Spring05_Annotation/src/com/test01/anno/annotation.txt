@@ -34,7 +34,7 @@ bean의 이름은 해당 클래스의 이름(첫글자 소문자)
 2. @Autowired
 패키지	: org.springframework.beans.factory.annotation
 버전	: spring 2.5
-Autowired annotation은 apring에서 의존관계를 자동으로 설정할 때 사용한다.
+Autowired annotation은 spring에서 의존관계를 자동으로 설정할 때 사용한다.
 이 어노테이션은 생성자, 필드, 메서드 세곳에 적용이 가능하며 타입을 이용한 프로퍼티 자동 설정기능을 제공한다.
 즉, 해당 타입의 빈 객체가 없거나 2개 이상일 경우 예외를 발생시킨다.
 프로퍼티 설정 메서드(setter) 형식이 아닌 일반 메서드에도 적용이 가능하다.
